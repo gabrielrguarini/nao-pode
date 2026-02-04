@@ -43,6 +43,7 @@ interface GameState {
   scoreCard: () => void;
   skipCard: () => void;
   nextTurn: () => void;
+  failPrenda: () => void;
   restartGame: () => void;
 }
 
@@ -205,14 +206,33 @@ export const useGameStore = create<GameState>((set, get) => ({
   },
 
   handlePrendaDone: () => {
-      // Return to game or end turn?
-      // Rules: "A carta é imediatamente encerrada". "A prenda é aplicada imediatamente após o erro".
-      // "A partida termina..." - wait.
-      // After prenda, do we continue the round? 
-      // "O dador de dicas fala uma palavra proibida... A carta é imediatamente encerrada".
-      // Usually turn continues with next card unless time is out.
-      
+      // Prenda fulfilled, no penalty beyond the "taboo" (which usually means lost point or just no gain).
+      // Logic here: return to game.
       set({ status: 'playing' });
+      get().drawCard();
+  },
+
+  failPrenda: () => {
+      const { currentTeamIndex } = get();
+      
+      set((state: GameState) => {
+          // Deduct 1 point from team score
+          const newTeams = [...state.teams];
+          if (newTeams[currentTeamIndex]) {
+              newTeams[currentTeamIndex] = {
+                  ...newTeams[currentTeamIndex],
+                  score: newTeams[currentTeamIndex].score - 1
+              };
+          }
+          // Also deduct from current round score? Usually round score tracks "correct" cards.
+          // The penalty is global.
+          
+          return {
+              teams: newTeams,
+              status: 'playing'
+          };
+      });
+      
       get().drawCard();
   },
 

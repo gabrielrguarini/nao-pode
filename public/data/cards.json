@@ -2878,5 +2878,605 @@
             "ESPAÇO"
         ],
         "difficulty": "easy"
+    },
+    {
+        "id": "221",
+        "word": "ABACAXI",
+        "forbiddenWords": [
+            "FRUTA",
+            "DOCE",
+            "AMARELO",
+            "ÁCIDO",
+            "EXÓTICO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "222",
+        "word": "ABATURADA",
+        "forbiddenWords": [
+            "ALIMENTO",
+            "REFEIÇÃO",
+            "COZINHAR",
+            "TEMPORADA",
+            "SABOR"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "223",
+        "word": "ALAMBRADO",
+        "forbiddenWords": [
+            "CERCADO",
+            "TELHA",
+            "JARDIM",
+            "PLANTAS",
+            "MATERIAL"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "224",
+        "word": "ALFORJE",
+        "forbiddenWords": [
+            "BOLSA",
+            "MALA",
+            "TRANSPORTAR",
+            "RUA",
+            "MOCHILA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "225",
+        "word": "ALÇADO",
+        "forbiddenWords": [
+            "LEVANTAR",
+            "POSIÇÃO",
+            "INCLINADO",
+            "FORTE",
+            "MOVER"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "226",
+        "word": "ALVEJAMENTO",
+        "forbiddenWords": [
+            "BRANQUEAMENTO",
+            "CLARO",
+            "LIMPO",
+            "TINTA",
+            "PROCESSO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "227",
+        "word": "AMETISTA",
+        "forbiddenWords": [
+            "PEDRA",
+            "MINERAL",
+            "ROXA",
+            "PRECIOSA",
+            "BRILHO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "228",
+        "word": "ANDORINHA",
+        "forbiddenWords": [
+            "PASSARINHO",
+            "VOAR",
+            "INVERNO",
+            "PEQUENO",
+            "ANIMAL"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "229",
+        "word": "ANEXO",
+        "forbiddenWords": [
+            "ADICIONAR",
+            "DOCUMENTO",
+            "JUNÇÃO",
+            "CONEXÃO",
+            "PARECER"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "230",
+        "word": "APARELHO",
+        "forbiddenWords": [
+            "MÁQUINA",
+            "USAR",
+            "FERRAMENTA",
+            "TECNOLOGIA",
+            "MODERNO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "231",
+        "word": "ARENITO",
+        "forbiddenWords": [
+            "PEDRA",
+            "AREIA",
+            "FORMAR",
+            "ROCHA",
+            "CONSTRUÇÃO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "232",
+        "word": "ATUM",
+        "forbiddenWords": [
+            "PEIXE",
+            "SUSHI",
+            "MAR",
+            "PROTEÍNA",
+            "ALIMENTO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "233",
+        "word": "BALEIA",
+        "forbiddenWords": [
+            "ANIMAL",
+            "MAR",
+            "GRANDE",
+            "MAMÍFERO",
+            "ÁGUA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "234",
+        "word": "BALIZA",
+        "forbiddenWords": [
+            "FUTEBOL",
+            "GOL",
+            "PESAR",
+            "AFASTAR",
+            "MARCAR"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "235",
+        "word": "BANDEJÃO",
+        "forbiddenWords": [
+            "REFEIÇÃO",
+            "LUNCH",
+            "MESA",
+            "SALA",
+            "PRATO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "236",
+        "word": "BARATA",
+        "forbiddenWords": [
+            "INSETO",
+            "PEQUENO",
+            "VOAR",
+            "PELE",
+            "MARROM"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "237",
+        "word": "BASCULHA",
+        "forbiddenWords": [
+            "INSPEÇÃO",
+            "PROCURAR",
+            "EXAME",
+            "MALHA",
+            "BUSCAR"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "238",
+        "word": "BATALHA",
+        "forbiddenWords": [
+            "GUERRA",
+            "LUTA",
+            "EXÉRCITO",
+            "EXTERMÍNIO",
+            "INIMIGO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "239",
+        "word": "BEATA",
+        "forbiddenWords": [
+            "CIGARRO",
+            "FUMAÇA",
+            "FUMO",
+            "CIGARREIRA",
+            "ROLO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "240",
+        "word": "BEBÊ",
+        "forbiddenWords": [
+            "CRIANCINHA",
+            "BEBER",
+            "LACTANTE",
+            "PEQUENO",
+            "INFANTE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "241",
+        "word": "BICICLETA",
+        "forbiddenWords": [
+            "TRANSPORTE",
+            "PEDALAR",
+            "DUAS",
+            "RODAS",
+            "CAMINHO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "242",
+        "word": "BISCUIT",
+        "forbiddenWords": [
+            "PÃO",
+            "DOCE",
+            "ASSADO",
+            "MASSA",
+            "FOFO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "243",
+        "word": "BOMBOM",
+        "forbiddenWords": [
+            "DOCE",
+            "CARAMELADO",
+            "CHOCOLATE",
+            "REFEIÇÃO",
+            "SABOR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "244",
+        "word": "BORRACHA",
+        "forbiddenWords": [
+            "CHÃO",
+            "CANETA",
+            "ELÁSTICA",
+            "APAGAR",
+            "PRETA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "245",
+        "word": "BORDA",
+        "forbiddenWords": [
+            "LIMITE",
+            "CANTO",
+            "DEFINIR",
+            "ALÉM",
+            "LINHA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "246",
+        "word": "BRADAR",
+        "forbiddenWords": [
+            "Gritar",
+            "CANTAR",
+            "VOZ",
+            "BARULHO",
+            "ORAR"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "247",
+        "word": "BRIGADEIRO",
+        "forbiddenWords": [
+            "DOCES",
+            "LEITE",
+            "SABOR",
+            "CHOCOLATE",
+            "BRASILEIRO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "248",
+        "word": "CAIXA",
+        "forbiddenWords": [
+            "CONTÊINER",
+            "ARMAZENAR",
+            "QUADRADO",
+            "FECHAR",
+            "DESIGN"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "249",
+        "word": "CANOA",
+        "forbiddenWords": [
+            "EMBARCAÇÃO",
+            "ÁGUA",
+            "PEQUENO",
+            "PADDLE",
+            "ESPORTES"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "250",
+        "word": "CANTINA",
+        "forbiddenWords": [
+            "ALIMENTAÇÃO",
+            "COMER",
+            "ESCOLA",
+            "REFEITÓRIO",
+            "PREÇO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "251",
+        "word": "CAVALO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "PESO",
+            "CAVALGADA",
+            "FERRADURA",
+            "CAUDA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "252",
+        "word": "CÉU",
+        "forbiddenWords": [
+            "AZUL",
+            "NUVEM",
+            "ALTO",
+            "SOL",
+            "ESPAÇO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "253",
+        "word": "CHAPÉU",
+        "forbiddenWords": [
+            "ACESSÓRIO",
+            "USAR",
+            "CABECEIRA",
+            "PROTEÇÃO",
+            "VERÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "254",
+        "word": "CHALE",
+        "forbiddenWords": [
+            "CASA",
+            "QUENTE",
+            "LENHA",
+            "JARDIM",
+            "MONTANHA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "255",
+        "word": "CHAVE",
+        "forbiddenWords": [
+            "PORTA",
+            "ABRIR",
+            "FECHAR",
+            "MECÂNICA",
+            "TRANSPORTE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "256",
+        "word": "CHICOTE",
+        "forbiddenWords": [
+            "FERRAMENTA",
+            "GATO",
+            "ALIVIO",
+            "PUNHO",
+            "AÇÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "257",
+        "word": "CINTILANTE",
+        "forbiddenWords": [
+            "BRILHO",
+            "LUZ",
+            "VIBRANTE",
+            "OFUSCAR",
+            "ESPELHO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "258",
+        "word": "CISCO",
+        "forbiddenWords": [
+            "SUJEIRA",
+            "PEQUENO",
+            "DUST",
+            "RESPIRAR",
+            "PÓ"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "259",
+        "word": "COELHO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "ORELHAS",
+            "VEGETAL",
+            "RODA",
+            "CARNE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "260",
+        "word": "COLETOR",
+        "forbiddenWords": [
+            "CAPTURAR",
+            "RECOLHER",
+            "ARQUIVO",
+            "LIXO",
+            "ARMAZENAMENTO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "261",
+        "word": "CONE",
+        "forbiddenWords": [
+            "FORMA",
+            "CIRCULAR",
+            "LÂMPADA",
+            "MONTAR",
+            "VOLUME"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "262",
+        "word": "CONVITE",
+        "forbiddenWords": [
+            "CHAMADO",
+            "CONVIDAR",
+            "EVENTO",
+            "OFERECER",
+            "CONVIDADO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "263",
+        "word": "CORNETA",
+        "forbiddenWords": [
+            "INSTRUMENTO",
+            "TOCAR",
+            "SOM",
+            "METAL",
+            "SINAL"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "264",
+        "word": "CORAL",
+        "forbiddenWords": [
+            "MAR",
+            "RECIFE",
+            "PEIXES",
+            "TURQUESA",
+            "HABITAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "265",
+        "word": "CORREDOR",
+        "forbiddenWords": [
+            "CORRER",
+            "PASSAGEM",
+            "ESPAÇO",
+            "SALÃO",
+            "EDIFÍCIO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "266",
+        "word": "CORREIO",
+        "forbiddenWords": [
+            "ENVELOPE",
+            "CORRESPONDÊNCIA",
+            "PAPEL",
+            "SERVIÇO",
+            "ENDEREÇO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "267",
+        "word": "CORTINA",
+        "forbiddenWords": [
+            "JANELA",
+            "VELO",
+            "SOMBREAMENTO",
+            "AR",
+            "FECHAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "268",
+        "word": "CRAVO",
+        "forbiddenWords": [
+            "FLOR",
+            "VERMELHO",
+            "PÉTALAS",
+            "PLANTA",
+            "PETALAS"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "269",
+        "word": "CRIAÇÃO",
+        "forbiddenWords": [
+            "INOVAÇÃO",
+            "FEITO",
+            "IDEIA",
+            "SISTEMA",
+            "ORIGEM"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "270",
+        "word": "CRISTAL",
+        "forbiddenWords": [
+            "PEDRA",
+            "BRILHO",
+            "TRANSPARENTE",
+            "JÓIA",
+            "MINERAL"
+        ],
+        "difficulty": "medium"
     }
 ]

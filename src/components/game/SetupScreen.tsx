@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGameStore } from '../../store/useGameStore';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
-import { Plus, Settings, Users, ArrowRight } from 'lucide-react';
+import { Plus, Settings, Users, ArrowRight, Book } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const SetupScreen = () => {
@@ -38,7 +38,12 @@ export const SetupScreen = () => {
       <div className="max-w-md mx-auto flex flex-col gap-6">
         <header className="flex items-center justify-between">
             <h1 className="text-3xl font-bold">Configuração</h1>
-            <Settings className="text-purple-300" />
+            <div className="flex gap-2">
+                <button onClick={() => navigate('/rules')} className="text-purple-300 hover:text-white transition-colors">
+                     <Book size={24} />
+                </button>
+                <Settings className="text-purple-300" />
+            </div>
         </header>
 
         {/* Game Mode Settings */}

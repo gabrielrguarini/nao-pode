@@ -21,8 +21,10 @@ export const GameScreen = () => {
     skipCard, 
     recordRefusal,
     handlePrendaDone,
+    failPrenda,
     currentRoundScore,
-    restartGame
+    restartGame,
+    currentPrenda
   } = useGameStore();
   const navigate = useNavigate();
   const [showExitModal, setShowExitModal] = useState(false);
@@ -41,14 +43,14 @@ export const GameScreen = () => {
   if (status === 'turn_ready') {
       return (
           <div className="h-screen bg-purple-900 flex flex-col items-center justify-center text-white p-6 relative">
-              <div className="absolute top-4 left-4">
+              <div className="absolute top-4 left-4 ">
                   <button 
                         onClick={() => setShowExitModal(true)}
-                        className="text-white/50 hover:text-white p-2 transition-colors"
+                        className="text-white/50 hover:text-white p-2 transition-colors flex items-center"
                     >
                         <XCircle size={24} />
+                  <span className="ml-2 text-white/50 hover:text-white transition-colors text-sm font-bold">SAIR</span>
                     </button>
-                  <span className="ml-2 text-white/50 text-sm font-bold">SAIR</span>
               </div>
 
               <h2 className="text-4xl font-bold mb-4">Vez da Equipe</h2>
@@ -77,15 +79,20 @@ export const GameScreen = () => {
               <h1 className="text-5xl font-black mb-4 uppercase">NÃO PODE!</h1>
               <p className="text-2xl font-bold mb-8">Palavra proibida dita!</p>
               
-              <div className="bg-white/20 p-6 rounded-xl backdrop-blur-sm mb-8 border border-white/30">
+              <div className="bg-white/20 p-6 rounded-xl backdrop-blur-sm mb-8 border border-white/30 max-w-lg w-full">
                   <h3 className="text-xl font-bold mb-2 text-yellow-200">Prenda:</h3>
-                  <p className="text-2xl">Imite uma galinha por 10 segundos!</p> 
-                  {/* TODO: Integrate random prenda from store */}
+                  <p className="text-2xl">{currentPrenda?.description || "Prenda Misteriosa"}</p> 
               </div>
 
-              <Button onClick={handlePrendaDone} variant="secondary" className="bg-white text-red-600 hover:bg-red-100">
-                  Cumpri a Prenda
-              </Button>
+              <div className="flex flex-col gap-4 w-full max-w-xs">
+                  <Button onClick={handlePrendaDone} variant="secondary" className="bg-white text-red-600 hover:bg-red-100 w-full py-4 text-lg">
+                      Cumpri a Prenda
+                  </Button>
+                  
+                  <Button onClick={failPrenda} variant="ghost" className="border-2 border-white/50 text-white hover:bg-white/10 w-full py-3">
+                      Não Cumpriu (-1 Ponto)
+                  </Button>
+              </div>
           </div>
       );
   }
@@ -116,7 +123,7 @@ export const GameScreen = () => {
         <header className="w-full flex items-center justify-between mb-4 z-10 px-2">
             <button 
                 onClick={() => setShowExitModal(true)}
-                className="text-white/50 hover:text-white p-2 transition-colors"
+                className="text-white/50  p-2 transition-colors"
             >
                 <XCircle size={24} />
             </button>
