@@ -4,8 +4,11 @@ import { CardDisplay } from './CardDisplay';
 import { RoundSummaryScreen } from './RoundSummaryScreen';
 import { GameOverScreen } from './GameOverScreen';
 import { Button } from '../common/Button';
-import { Ban, Check, SkipForward, AlertTriangle } from 'lucide-react';
+import { Modal } from '../common/Modal';
+import { Ban, Check, SkipForward, AlertTriangle, XCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export const GameScreen = () => {
   const { 
@@ -18,10 +21,18 @@ export const GameScreen = () => {
     skipCard, 
     recordRefusal,
     handlePrendaDone,
-    currentRoundScore
+    currentRoundScore,
+    restartGame
   } = useGameStore();
+  const navigate = useNavigate();
+  const [showExitModal, setShowExitModal] = useState(false);
 
   const currentTeam = teams[currentTeamIndex];
+
+  const handleConfirmExit = () => {
+      restartGame();
+      navigate('/');
+  };
 
   if (status === 'game_over') {
     return <GameOverScreen />;
@@ -29,11 +40,32 @@ export const GameScreen = () => {
 
   if (status === 'turn_ready') {
       return (
-          <div className="h-screen bg-purple-900 flex flex-col items-center justify-center text-white p-6">
+          <div className="h-screen bg-purple-900 flex flex-col items-center justify-center text-white p-6 relative">
+              <div className="absolute top-4 left-4">
+                  <button 
+                        onClick={() => setShowExitModal(true)}
+                        className="text-white/50 hover:text-white p-2 transition-colors"
+                    >
+                        <XCircle size={24} />
+                    </button>
+                  <span className="ml-2 text-white/50 text-sm font-bold">SAIR</span>
+              </div>
+
               <h2 className="text-4xl font-bold mb-4">Vez da Equipe</h2>
               <h1 className="text-6xl font-black text-yellow-400 mb-8 uppercase tracking-widest text-center">{currentTeam?.name}</h1>
               <p className="text-xl mb-12 opacity-80">Prepare-se para dar as dicas!</p>
               <Button onClick={startRound} size="lg">COMEÇAR RODADA</Button>
+
+              <Modal
+                  isOpen={showExitModal}
+                  onClose={() => setShowExitModal(false)}
+                  title="Sair do Jogo?"
+                  description="Todo o progresso atual será perdido e você voltará para a tela inicial."
+                  confirmText="Sim, Sair"
+                  cancelText="Cancelar"
+                  onConfirm={handleConfirmExit}
+                  variant="danger"
+              />
           </div>
       );
   }
@@ -69,9 +101,26 @@ export const GameScreen = () => {
         animate={{ opacity: 1 }} 
         className="h-screen bg-purple-800 flex flex-col items-center p-4 relative overflow-hidden"
     >
+        <Modal
+            isOpen={showExitModal}
+            onClose={() => setShowExitModal(false)}
+            title="Sair do Jogo?"
+            description="O jogo será encerrado e a pontuação atual será perdida."
+            confirmText="Sim, Sair"
+            cancelText="Cancelar"
+            onConfirm={handleConfirmExit}
+            variant="danger"
+        />
+
         {/* Header */}
-        <header className="w-full flex items-center justify-between mb-4 z-10">
-            <div className="flex flex-col">
+        <header className="w-full flex items-center justify-between mb-4 z-10 px-2">
+            <button 
+                onClick={() => setShowExitModal(true)}
+                className="text-white/50 hover:text-white p-2 transition-colors"
+            >
+                <XCircle size={24} />
+            </button>
+            <div className="flex flex-col items-center">
                 <span className="text-xs font-bold text-purple-300 uppercase">Equipe</span>
                 <span className="text-xl font-bold text-white">{currentTeam?.name}</span>
             </div>

@@ -35,6 +35,7 @@ export type GameSettings = {
   rounds: number; // For time-based game, or max score
   scoreToWin: number; // 0 if playing by rounds
   timePerRound: number; // in seconds
+  cardsPerRound: number | null; // null represents "Unlimited" (time based only)
   prendasEnabled: boolean;
   allowSkips: boolean;
 };

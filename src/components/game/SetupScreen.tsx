@@ -60,8 +60,28 @@ export const SetupScreen = () => {
                         <option value={90}>90s</option>
                     </select>
                 </div>
+
+                <div className="flex items-center justify-between">
+                    <span>Cartas por Rodada</span>
+                    <select 
+                        className="bg-purple-800 rounded p-2"
+                        value={localSettings.cardsPerRound ?? 'unlimited'}
+                        onChange={(e) => {
+                            const val = e.target.value;
+                            setLocalSettings({
+                                ...localSettings, 
+                                cardsPerRound: val === 'unlimited' ? null : Number(val)
+                            });
+                        }}
+                    >
+                        <option value="unlimited">Sem Limite</option>
+                        <option value={3}>3 Cartas</option>
+                        <option value={5}>5 Cartas</option>
+                        <option value={10}>10 Cartas</option>
+                    </select>
+                </div>
                 
-                    <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
                     <span>Modo Prendas</span>
                      <button 
                         onClick={() => setLocalSettings((s: import('../../types').GameSettings) => ({...s, prendasEnabled: !s.prendasEnabled}))}

@@ -47,6 +47,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     rounds: 5,
     scoreToWin: 0,
     timePerRound: 60,
+    cardsPerRound: null, // Default unlimited
     prendasEnabled: false,
     allowSkips: true,
   },
@@ -125,7 +126,14 @@ export const useGameStore = create<GameState>((set, get) => ({
   },
 
   drawCard: () => {
-    const { deck, usedCardIds } = get();
+    const { deck, usedCardIds, settings, roundResults, endRound } = get();
+    
+    // Check card limit per round if set
+    if (settings.cardsPerRound !== null && roundResults.length >= settings.cardsPerRound) {
+        endRound();
+        return;
+    }
+
     const available = deck.filter((c: Card) => !usedCardIds.includes(c.id));
     
     if (available.length === 0) {
@@ -257,6 +265,13 @@ export const useGameStore = create<GameState>((set, get) => ({
   },
   
   restartGame: () => {
-      set({ status: 'setup', teams: [], players: [], currentRoundNumber: 0, usedCardIds: [] });
+      set((state) => ({ 
+          status: 'setup', 
+          currentRoundNumber: 0, 
+          usedCardIds: [], 
+          currentRoundScore: 0,
+          roundResults: [],
+          teams: state.teams.map(t => ({ ...t, score: 0 })) 
+      }));
   }
 }));
