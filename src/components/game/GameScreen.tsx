@@ -7,7 +7,7 @@ import { Button } from '../common/Button';
 import { Modal } from '../common/Modal';
 import { Ban, Check, SkipForward, AlertTriangle, XCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 
 export const GameScreen = () => {
@@ -26,8 +26,14 @@ export const GameScreen = () => {
     restartGame,
     currentPrenda
   } = useGameStore();
+
   const navigate = useNavigate();
   const [showExitModal, setShowExitModal] = useState(false);
+
+  // Redirect if game state is invalid for this screen
+  if (status === 'setup') {
+      return <Navigate to="/setup" replace />;
+  }
 
   const currentTeam = teams[currentTeamIndex];
 

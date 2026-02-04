@@ -38,7 +38,7 @@ export const SetupScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 to-indigo-900 text-white p-6 overflow-y-auto">
+    <div className="min-h-dvh bg-gradient-to-br from-purple-900 to-indigo-900 text-white p-6 overflow-y-auto">
       <div className="max-w-md mx-auto flex flex-col gap-6">
         <header className="flex items-center justify-between">
             <h1 className="text-3xl font-bold">Configuração</h1>
@@ -57,7 +57,7 @@ export const SetupScreen = () => {
             </h2>
             <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
-                    <span>Tempo por Rodada</span>
+                    <span>Tempo da Vez</span>
                     <select 
                         className="bg-purple-800 rounded p-2"
                         value={localSettings.timePerRound}
@@ -67,11 +67,15 @@ export const SetupScreen = () => {
                         <option value={45}>45s</option>
                         <option value={60}>60s</option>
                         <option value={90}>90s</option>
+                        <option value={120}>120s</option>
                     </select>
                 </div>
 
                 <div className="flex items-center justify-between">
-                    <span>Cartas por Rodada</span>
+                    <div>
+                        <span className="block">Limite de Cartas</span>
+                        <span className="text-xs text-purple-300">Encerra a vez ao atingir</span>
+                    </div>
                     <select 
                         className="bg-purple-800 rounded p-2"
                         value={localSettings.cardsPerRound ?? 'unlimited'}
@@ -83,11 +87,23 @@ export const SetupScreen = () => {
                             });
                         }}
                     >
-                        <option value="unlimited">Sem Limite</option>
+                        <option value="unlimited">Só Tempo</option>
                         <option value={3}>3 Cartas</option>
                         <option value={5}>5 Cartas</option>
                         <option value={10}>10 Cartas</option>
                     </select>
+                </div>
+
+                <div className="flex items-center justify-between">
+                    <span>Rodadas Totais</span>
+                    <input 
+                        type="number" 
+                        min="1" 
+                        max="99"
+                        className="bg-purple-800 rounded p-2 w-16 text-center"
+                        value={localSettings.rounds}
+                        onChange={(e) => setLocalSettings({...localSettings, rounds: Number(e.target.value)})}
+                    />
                 </div>
                 
                 <div className="flex items-center justify-between">
