@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useGameStore } from '../../store/useGameStore';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
-import { Plus, Settings, Users, ArrowRight, Book } from 'lucide-react';
+import { Plus, Settings, Users, ArrowRight, Book, Trash2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const SetupScreen = () => {
   const navigate = useNavigate();
-  const { teams, addTeam, setSettings, settings, startGame } = useGameStore();
+  const { teams, addTeam, removeTeam, setSettings, settings, startGame } = useGameStore();
   const [newTeamName, setNewTeamName] = useState('');
   
   // Local state for settings form
@@ -24,6 +24,10 @@ export const SetupScreen = () => {
       players: []
     });
     setNewTeamName('');
+  };
+
+  const handleRemoveTeam = (id: string) => {
+    removeTeam(id);
   };
 
   const handleStart = () => {
@@ -111,7 +115,7 @@ export const SetupScreen = () => {
                     onChange={(e) => setNewTeamName(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleAddTeam()}
                 />
-                <Button onClick={handleAddTeam} size="sm" variant="secondary">
+                <Button onClick={handleAddTeam} size="sm" variant="secondary" disabled={!newTeamName.trim()}>
                     <Plus size={20} />
                 </Button>
             </div>
@@ -127,7 +131,13 @@ export const SetupScreen = () => {
                             className="flex items-center justify-between bg-white/10 p-3 rounded-lg"
                         >
                             <span className="font-semibold">{team.name}</span>
-                            {/* Allow delete team later */}
+                            
+                            <button 
+                                onClick={() => handleRemoveTeam(team.id)}
+                                className="text-red-400 hover:text-red-600 transition-colors"
+                            >
+                                <Trash2 size={20} />
+                            </button>
                         </motion.div>
                     ))}
                 </AnimatePresence>

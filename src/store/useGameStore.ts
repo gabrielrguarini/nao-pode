@@ -32,6 +32,7 @@ interface GameState {
   initializeContent: () => Promise<void>;
   setSettings: (settings: GameSettings) => void;
   addTeam: (team: Team) => void;
+  removeTeam: (id: string) => void;
   addPlayer: (player: Player) => void;
   startGame: () => void;
   startRound: () => void;
@@ -53,8 +54,8 @@ export const useGameStore = create<GameState>((set, get) => ({
     rounds: 5,
     scoreToWin: 0,
     timePerRound: 60,
-    cardsPerRound: null, // Default unlimited
-    prendasEnabled: false,
+    cardsPerRound: null,
+    prendasEnabled: true,
     allowSkips: true,
   },
   teams: [],
@@ -94,6 +95,7 @@ export const useGameStore = create<GameState>((set, get) => ({
 
   setSettings: (settings: GameSettings) => set({ settings }),
   addTeam: (team: Team) => set((state: GameState) => ({ teams: [...state.teams, team] })),
+  removeTeam: (id: string) => set((state: GameState) => ({ teams: state.teams.filter((t: Team) => t.id !== id) })),
   addPlayer: (player: Player) => set((state: GameState) => ({ players: [...state.players, player] })),
   
   startGame: () => {
