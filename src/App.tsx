@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-// import { useGameStore } from './store/useGameStore';
+import { useGameStore } from './store/useGameStore';
 import { SetupScreen } from './components/game/SetupScreen';
+import { GameScreen } from './components/game/GameScreen';
 
 // Placeholders for screens
 const HomeScreen = () => {
@@ -19,9 +21,22 @@ const HomeScreen = () => {
     );
 };
 
-import { GameScreen } from './components/game/GameScreen';
-
 function App() {
+  const initializeContent = useGameStore(state => state.initializeContent);
+  const isLoading = useGameStore(state => state.isLoading);
+
+  useEffect(() => {
+    initializeContent();
+  }, [initializeContent]);
+
+  if (isLoading) {
+      return (
+          <div className="h-screen w-screen flex items-center justify-center bg-purple-600 text-white">
+              <h1 className="text-2xl font-bold animate-pulse">Carregando...</h1>
+          </div>
+      )
+  }
+
   return (
     <BrowserRouter>
       <Routes>

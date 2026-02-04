@@ -1,14 +1,18 @@
 import { create } from 'zustand';
 import { type GameSettings, type Team, type Player, type Card, type GameStatus, type RoundResult, type Prenda } from '../types';
 import { shuffle } from '../utils/array';
-import { INITIAL_CARDS } from '../data/cards';
-import { INITIAL_PRENDAS } from '../data/prendas';
+import { ContentService } from '../services/ContentService';
 
 interface GameState {
   settings: GameSettings;
   teams: Team[];
   players: Player[];
   status: GameStatus;
+
+  // Content State
+  isLoading: boolean;
+  allCards: Card[];
+  allPrendas: Prenda[];
   
   // Turn State
   currentTeamIndex: number;
@@ -25,6 +29,7 @@ interface GameState {
   currentRoundNumber: number;
 
   // Actions
+  initializeContent: () => Promise<void>;
   setSettings: (settings: GameSettings) => void;
   addTeam: (team: Team) => void;
   addPlayer: (player: Player) => void;
@@ -54,6 +59,10 @@ export const useGameStore = create<GameState>((set, get) => ({
   teams: [],
   players: [],
   status: 'setup',
+
+  isLoading: true,
+  allCards: [],
+  allPrendas: [],
   
   currentTeamIndex: 0,
   currentPlayerIndex: 0,
@@ -67,16 +76,36 @@ export const useGameStore = create<GameState>((set, get) => ({
   usedCardIds: [],
   currentRoundNumber: 0,
 
+  initializeContent: async () => {
+    set({ isLoading: true });
+    try {
+      const { cards, prendas } = await ContentService.initialize();
+      set({ 
+        allCards: cards, 
+        allPrendas: prendas, 
+        isLoading: false 
+      });
+    } catch (error) {
+      console.error("Failed to initialize content:", error);
+      set({ isLoading: false });
+    }
+  },
+
   setSettings: (settings: GameSettings) => set({ settings }),
   addTeam: (team: Team) => set((state: GameState) => ({ teams: [...state.teams, team] })),
   addPlayer: (player: Player) => set((state: GameState) => ({ players: [...state.players, player] })),
   
   startGame: () => {
-    const { settings } = get();
+    const { settings, allCards } = get();
     // Validate
     if (settings.mode === 'teams' && get().teams.length < 2) {
       console.error("Need at least 2 teams");
       return;
+    }
+
+    if (allCards.length === 0) {
+        console.error("No cards loaded!");
+        return;
     }
 
     set(() => ({
@@ -85,8 +114,8 @@ export const useGameStore = create<GameState>((set, get) => ({
       currentTeamIndex: 0,
       currentPlayerIndex: 0,
       usedCardIds: [],
-      // Shuffle deck
-      deck: shuffle(INITIAL_CARDS),
+      // Shuffle deck from allCards
+      deck: shuffle([...allCards]),
     }));
   },
 
@@ -97,8 +126,8 @@ export const useGameStore = create<GameState>((set, get) => ({
     
     if (availableCards.length === 0) {
         // Reshuffle or end game?
-        // simple reshuffle of all cards
-         set({ usedCardIds: [] });
+        // simple reshuffle of all cards could be done here if needed
+        set({ usedCardIds: [] });
     }
 
     set({ 
@@ -147,7 +176,7 @@ export const useGameStore = create<GameState>((set, get) => ({
   },
 
   recordRefusal: () => {
-      const { currentCard, settings } = get();
+      const { currentCard, settings, allPrendas } = get();
       if (!currentCard) return;
 
       // Log result
@@ -157,9 +186,9 @@ export const useGameStore = create<GameState>((set, get) => ({
           timestamp: Date.now()
       };
 
-      // Select random prenda
-      const randomPrenda = settings.prendasEnabled 
-          ? INITIAL_PRENDAS[Math.floor(Math.random() * INITIAL_PRENDAS.length)]
+      // Select random prenda from loaded prendas
+      const randomPrenda = (settings.prendasEnabled && allPrendas.length > 0)
+          ? allPrendas[Math.floor(Math.random() * allPrendas.length)]
           : null;
 
       set((state: GameState) => ({

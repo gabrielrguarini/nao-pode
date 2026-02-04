@@ -1,0 +1,2882 @@
+[
+    {
+        "id": "1",
+        "word": "TELEFONE",
+        "forbiddenWords": [
+            "LIGAR",
+            "CELULAR",
+            "FALAR",
+            "APARELHO",
+            "DISCAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "2",
+        "word": "BOLA",
+        "forbiddenWords": [
+            "FUTEBOL",
+            "REDONDA",
+            "CHUTAR",
+            "ESPORTE",
+            "JOGO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "3",
+        "word": "ESCOLA",
+        "forbiddenWords": [
+            "ESTUDAR",
+            "PROFESSOR",
+            "ALUNO",
+            "AULA",
+            "COLÉGIO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "4",
+        "word": "PRAIA",
+        "forbiddenWords": [
+            "MAR",
+            "AREIA",
+            "SOL",
+            "VERÃO",
+            "ONDAS"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "5",
+        "word": "COMPUTADOR",
+        "forbiddenWords": [
+            "INTERNET",
+            "TELA",
+            "TECLADO",
+            "MOUSE",
+            "PC"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "6",
+        "word": "GATO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "FELINO",
+            "MIAR",
+            "BIGODE",
+            "PATAS"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "7",
+        "word": "CARRO",
+        "forbiddenWords": [
+            "VEÍCULO",
+            "RODA",
+            "MOTOR",
+            "DIRIGIR",
+            "ESTRADA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "8",
+        "word": "RELÓGIO",
+        "forbiddenWords": [
+            "TEMPO",
+            "HORA",
+            "PONTEIRO",
+            "PULSO",
+            "ALARME"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "9",
+        "word": "LIVRO",
+        "forbiddenWords": [
+            "LER",
+            "PÁGINA",
+            "CAPA",
+            "HISTÓRIA",
+            "AUTOR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "10",
+        "word": "AVIÃO",
+        "forbiddenWords": [
+            "VOAR",
+            "AEROPORTO",
+            "ASA",
+            "PILOTO",
+            "VIAGEM"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "11",
+        "word": "FOGO",
+        "forbiddenWords": [
+            "QUEIMAR",
+            "CHAMA",
+            "CALOR",
+            "FUMAÇA",
+            "LENHA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "12",
+        "word": "CHUVA",
+        "forbiddenWords": [
+            "ÁGUA",
+            "NUBLADO",
+            "TEMPO",
+            "GUARDA-CHUVA",
+            "TROVÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "13",
+        "word": "CACHORRO",
+        "forbiddenWords": [
+            "LATIR",
+            "ANIMAL",
+            "COLEIRA",
+            "PATAS",
+            "OSSO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "14",
+        "word": "CADEIRA",
+        "forbiddenWords": [
+            "SENTAR",
+            "ENCOSTO",
+            "MESA",
+            "MADEIRA",
+            "ASSENTO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "15",
+        "word": "GELADEIRA",
+        "forbiddenWords": [
+            "FRIO",
+            "COZINHA",
+            "COMIDA",
+            "PORTA",
+            "FREEZER"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "16",
+        "word": "ÓCULOS",
+        "forbiddenWords": [
+            "VISÃO",
+            "LENTE",
+            "ROSTO",
+            "GRAU",
+            "ARMAÇÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "17",
+        "word": "CAMISA",
+        "forbiddenWords": [
+            "ROUPA",
+            "VESTIR",
+            "MANGA",
+            "TECIDO",
+            "BOTÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "18",
+        "word": "SAPATO",
+        "forbiddenWords": [
+            "CALÇADO",
+            "PÉ",
+            "SOLADO",
+            "AMARRAR",
+            "COURO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "19",
+        "word": "JANELA",
+        "forbiddenWords": [
+            "VIDRO",
+            "ABRIR",
+            "VENTO",
+            "CASA",
+            "CORTINA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "20",
+        "word": "ESCADA",
+        "forbiddenWords": [
+            "SUBIR",
+            "DEGRAU",
+            "ALTURA",
+            "PRÉDIO",
+            "CORRIMÃO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "1",
+        "word": "TELEFONE",
+        "forbiddenWords": [
+            "LIGAR",
+            "CELULAR",
+            "FALAR",
+            "APARELHO",
+            "DISCAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "2",
+        "word": "BOLA",
+        "forbiddenWords": [
+            "FUTEBOL",
+            "REDONDA",
+            "CHUTAR",
+            "ESPORTE",
+            "JOGO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "3",
+        "word": "ESCOLA",
+        "forbiddenWords": [
+            "ESTUDAR",
+            "PROFESSOR",
+            "ALUNO",
+            "AULA",
+            "COLÉGIO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "4",
+        "word": "PRAIA",
+        "forbiddenWords": [
+            "MAR",
+            "AREIA",
+            "SOL",
+            "VERÃO",
+            "ONDAS"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "5",
+        "word": "COMPUTADOR",
+        "forbiddenWords": [
+            "INTERNET",
+            "TELA",
+            "TECLADO",
+            "MOUSE",
+            "PC"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "6",
+        "word": "GATO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "FELINO",
+            "MIAR",
+            "BIGODE",
+            "PATAS"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "7",
+        "word": "CARRO",
+        "forbiddenWords": [
+            "VEÍCULO",
+            "RODA",
+            "MOTOR",
+            "DIRIGIR",
+            "ESTRADA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "8",
+        "word": "RELÓGIO",
+        "forbiddenWords": [
+            "TEMPO",
+            "HORA",
+            "PONTEIRO",
+            "PULSO",
+            "ALARME"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "9",
+        "word": "LIVRO",
+        "forbiddenWords": [
+            "LER",
+            "PÁGINA",
+            "CAPA",
+            "HISTÓRIA",
+            "AUTOR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "10",
+        "word": "AVIÃO",
+        "forbiddenWords": [
+            "VOAR",
+            "AEROPORTO",
+            "ASA",
+            "PILOTO",
+            "VIAGEM"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "11",
+        "word": "FOGO",
+        "forbiddenWords": [
+            "QUEIMAR",
+            "CHAMA",
+            "CALOR",
+            "FUMAÇA",
+            "LENHA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "12",
+        "word": "CHUVA",
+        "forbiddenWords": [
+            "ÁGUA",
+            "NUBLADO",
+            "TEMPO",
+            "GUARDA-CHUVA",
+            "TROVÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "13",
+        "word": "CACHORRO",
+        "forbiddenWords": [
+            "LATIR",
+            "ANIMAL",
+            "COLEIRA",
+            "PATAS",
+            "OSSO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "14",
+        "word": "CADEIRA",
+        "forbiddenWords": [
+            "SENTAR",
+            "ENCOSTO",
+            "MESA",
+            "MADEIRA",
+            "ASSENTO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "15",
+        "word": "GELADEIRA",
+        "forbiddenWords": [
+            "FRIO",
+            "COZINHA",
+            "COMIDA",
+            "PORTA",
+            "FREEZER"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "16",
+        "word": "ÓCULOS",
+        "forbiddenWords": [
+            "VISÃO",
+            "LENTE",
+            "ROSTO",
+            "GRAU",
+            "ARMAÇÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "17",
+        "word": "CAMISA",
+        "forbiddenWords": [
+            "ROUPA",
+            "VESTIR",
+            "MANGA",
+            "TECIDO",
+            "BOTÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "18",
+        "word": "SAPATO",
+        "forbiddenWords": [
+            "CALÇADO",
+            "PÉ",
+            "SOLADO",
+            "AMARRAR",
+            "COURO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "19",
+        "word": "JANELA",
+        "forbiddenWords": [
+            "VIDRO",
+            "ABRIR",
+            "VENTO",
+            "CASA",
+            "CORTINA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "20",
+        "word": "ESCADA",
+        "forbiddenWords": [
+            "SUBIR",
+            "DEGRAU",
+            "ALTURA",
+            "PRÉDIO",
+            "CORRIMÃO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "21",
+        "word": "ABACATE",
+        "forbiddenWords": [
+            "FRUTA",
+            "VERDE",
+            "CASCA",
+            "CAROÇO",
+            "VITAMINA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "22",
+        "word": "ANEL",
+        "forbiddenWords": [
+            "JOIA",
+            "DED0",
+            "OURO",
+            "PRATA",
+            "CASAMENTO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "23",
+        "word": "ARVORE",
+        "forbiddenWords": [
+            "FOLHA",
+            "TRONCO",
+            "NATUREZA",
+            "SOMBRA",
+            "RAIZ"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "24",
+        "word": "BICICLETA",
+        "forbiddenWords": [
+            "PEDALAR",
+            "RODA",
+            "GUIDÃO",
+            "CICLO",
+            "CAPACETE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "25",
+        "word": "BOLO",
+        "forbiddenWords": [
+            "DOCE",
+            "FORNO",
+            "FESTA",
+            "FATIA",
+            "ANIVERSÁRIO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "26",
+        "word": "CAFÉ",
+        "forbiddenWords": [
+            "BEBIDA",
+            "QUENTE",
+            "XÍCARA",
+            "MANHÃ",
+            "GRÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "27",
+        "word": "CADERNO",
+        "forbiddenWords": [
+            "ANOTAR",
+            "FOLHA",
+            "ESPIRAL",
+            "ESCOLA",
+            "ESCREVER"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "28",
+        "word": "CAMINHÃO",
+        "forbiddenWords": [
+            "CARGA",
+            "ESTRADA",
+            "TRANSPORTE",
+            "MOTOR",
+            "VEÍCULO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "29",
+        "word": "CANETA",
+        "forbiddenWords": [
+            "ESCREVER",
+            "TINTA",
+            "TAMPA",
+            "PAPEL",
+            "AZUL"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "30",
+        "word": "CASTELO",
+        "forbiddenWords": [
+            "REI",
+            "PEDRA",
+            "TORRE",
+            "MEDIEVAL",
+            "FORTALEZA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "31",
+        "word": "CÉU",
+        "forbiddenWords": [
+            "AZUL",
+            "NUVEM",
+            "ALTURA",
+            "SOL",
+            "ESTRELA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "32",
+        "word": "CHAVE",
+        "forbiddenWords": [
+            "PORTA",
+            "ABRIR",
+            "METAL",
+            "CADEADO",
+            "FECHADURA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "33",
+        "word": "CHOCOLATE",
+        "forbiddenWords": [
+            "DOCE",
+            "CACAU",
+            "BARRA",
+            "SOBREMESA",
+            "MARROM"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "34",
+        "word": "CINEMA",
+        "forbiddenWords": [
+            "FILME",
+            "TELA",
+            "PIPOCA",
+            "CADEIRA",
+            "SALA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "35",
+        "word": "COZINHA",
+        "forbiddenWords": [
+            "COMIDA",
+            "FOGÃO",
+            "PANELA",
+            "RECEITA",
+            "CASA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "36",
+        "word": "DADO",
+        "forbiddenWords": [
+            "JOGO",
+            "NÚMERO",
+            "SORTE",
+            "RODAR",
+            "MESA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "37",
+        "word": "DENTE",
+        "forbiddenWords": [
+            "BOCA",
+            "SORRISO",
+            "ESCOVA",
+            "MORDER",
+            "BRANCO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "38",
+        "word": "DESERTO",
+        "forbiddenWords": [
+            "AREIA",
+            "CALOR",
+            "SECO",
+            "CAMEL0",
+            "SOL"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "39",
+        "word": "DINHEIRO",
+        "forbiddenWords": [
+            "MOEDA",
+            "NOTA",
+            "COMPRAR",
+            "VALOR",
+            "BANCO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "40",
+        "word": "ELEVADOR",
+        "forbiddenWords": [
+            "SUBIR",
+            "DESCER",
+            "PRÉDIO",
+            "BOTÃO",
+            "PORTA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "41",
+        "word": "ESPELHO",
+        "forbiddenWords": [
+            "REFLEXO",
+            "VIDRO",
+            "ROSTO",
+            "BANHEIRO",
+            "IMAGEM"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "42",
+        "word": "ESTRELA",
+        "forbiddenWords": [
+            "NOITE",
+            "BRILHO",
+            "CÉU",
+            "ESPAÇO",
+            "LUZ"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "43",
+        "word": "FACA",
+        "forbiddenWords": [
+            "CORTAR",
+            "LÂMINA",
+            "COZINHA",
+            "AFIADA",
+            "TALHER"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "44",
+        "word": "FLORESTA",
+        "forbiddenWords": [
+            "ÁRVORE",
+            "VERDE",
+            "NATUREZA",
+            "ANIMAL",
+            "MATA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "45",
+        "word": "FOGÃO",
+        "forbiddenWords": [
+            "COZINHAR",
+            "GÁS",
+            "BOCA",
+            "PANELA",
+            "COZINHA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "46",
+        "word": "FOTO",
+        "forbiddenWords": [
+            "IMAGEM",
+            "CÂMERA",
+            "RETRATO",
+            "FLASH",
+            "MEMÓRIA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "47",
+        "word": "FRANGO",
+        "forbiddenWords": [
+            "CARNE",
+            "ASSADO",
+            "COMIDA",
+            "COZINHAR",
+            "AVE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "48",
+        "word": "FUMAÇA",
+        "forbiddenWords": [
+            "FOGO",
+            "AR",
+            "CINZA",
+            "CHEIRO",
+            "QUEIMAR"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "49",
+        "word": "GARFO",
+        "forbiddenWords": [
+            "TALHER",
+            "COMER",
+            "COZINHA",
+            "PONTA",
+            "MESA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "50",
+        "word": "GUITARRA",
+        "forbiddenWords": [
+            "MÚSICA",
+            "CORDA",
+            "TOCAR",
+            "INSTRUMENTO",
+            "SOM"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "51",
+        "word": "HOSPITAL",
+        "forbiddenWords": [
+            "MÉDICO",
+            "DOENTE",
+            "ENFERMEIRO",
+            "REMEDIO",
+            "SAÚDE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "52",
+        "word": "ILHA",
+        "forbiddenWords": [
+            "MAR",
+            "TERRA",
+            "ÁGUA",
+            "ISOLADA",
+            "PRAIA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "53",
+        "word": "IMÃ",
+        "forbiddenWords": [
+            "METAL",
+            "GRUDAR",
+            "FORÇA",
+            "POLO",
+            "OBJETO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "54",
+        "word": "JARDIM",
+        "forbiddenWords": [
+            "PLANTA",
+            "FLOR",
+            "TERRA",
+            "CUIDAR",
+            "VERDE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "55",
+        "word": "JORNAL",
+        "forbiddenWords": [
+            "NOTÍCIA",
+            "PAPEL",
+            "LER",
+            "MANCHETE",
+            "IMPRESSO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "56",
+        "word": "LAGO",
+        "forbiddenWords": [
+            "ÁGUA",
+            "DOCE",
+            "PEIXE",
+            "NATUREZA",
+            "CALMO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "57",
+        "word": "LÂMPADA",
+        "forbiddenWords": [
+            "LUZ",
+            "ENERGIA",
+            "ILUMINAR",
+            "TETO",
+            "LIGAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "58",
+        "word": "LIXO",
+        "forbiddenWords": [
+            "DESCARTE",
+            "SUJO",
+            "COLETAR",
+            "RESTO",
+            "RECICLAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "59",
+        "word": "LUA",
+        "forbiddenWords": [
+            "NOITE",
+            "CÉU",
+            "SATÉLITE",
+            "BRILHO",
+            "CHEIA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "60",
+        "word": "MAÇÃ",
+        "forbiddenWords": [
+            "FRUTA",
+            "VERMELHA",
+            "DOCE",
+            "MORDER",
+            "CASCA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "61",
+        "word": "MAPA",
+        "forbiddenWords": [
+            "LOCALIZAÇÃO",
+            "PAÍS",
+            "RUA",
+            "GUIA",
+            "CARTOGRAFIA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "62",
+        "word": "MARTELO",
+        "forbiddenWords": [
+            "BATER",
+            "PREGO",
+            "FERRAMENTA",
+            "CONSTRUÇÃO",
+            "FERRO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "63",
+        "word": "MELANCIA",
+        "forbiddenWords": [
+            "FRUTA",
+            "VERDE",
+            "VERMELHA",
+            "SEMENTE",
+            "DOCE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "64",
+        "word": "MONTANHA",
+        "forbiddenWords": [
+            "ALTA",
+            "PEDRA",
+            "SUBIR",
+            "NATUREZA",
+            "PICO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "65",
+        "word": "NAVIO",
+        "forbiddenWords": [
+            "MAR",
+            "VIAGEM",
+            "BARCO",
+            "PORTO",
+            "ÁGUA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "66",
+        "word": "NEVE",
+        "forbiddenWords": [
+            "FRIO",
+            "BRANCO",
+            "GELO",
+            "INVERNO",
+            "CAIR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "67",
+        "word": "OLHO",
+        "forbiddenWords": [
+            "VER",
+            "ROSTO",
+            "VISÃO",
+            "PISCAR",
+            "ÍRIS"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "68",
+        "word": "OVO",
+        "forbiddenWords": [
+            "GALINHA",
+            "COMIDA",
+            "CASCA",
+            "FRITAR",
+            "COZINHAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "69",
+        "word": "PANELA",
+        "forbiddenWords": [
+            "COZINHA",
+            "COMIDA",
+            "FOGÃO",
+            "METAL",
+            "TAMPA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "70",
+        "word": "PARQUE",
+        "forbiddenWords": [
+            "LAZER",
+            "ÁRVORE",
+            "CRIANÇA",
+            "BANCO",
+            "PASSEIO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "71",
+        "word": "PEIXE",
+        "forbiddenWords": [
+            "ÁGUA",
+            "NADAR",
+            "ESCAMA",
+            "RIO",
+            "MAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "72",
+        "word": "PENTE",
+        "forbiddenWords": [
+            "CABELE",
+            "ARRUMAR",
+            "DENTE",
+            "PLÁSTICO",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "73",
+        "word": "PILHA",
+        "forbiddenWords": [
+            "ENERGIA",
+            "BATERIA",
+            "APARELHO",
+            "ELETRICIDADE",
+            "CARGA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "74",
+        "word": "PONTE",
+        "forbiddenWords": [
+            "LIGAR",
+            "RIO",
+            "ESTRADA",
+            "PASSAGEM",
+            "CONSTRUÇÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "75",
+        "word": "QUEIJO",
+        "forbiddenWords": [
+            "LEITE",
+            "AMARELO",
+            "COMIDA",
+            "FATIAR",
+            "LANCH0"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "76",
+        "word": "RÁDIO",
+        "forbiddenWords": [
+            "MÚSICA",
+            "SOM",
+            "FREQUÊNCIA",
+            "OUVIR",
+            "APARELHO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "77",
+        "word": "RIO",
+        "forbiddenWords": [
+            "ÁGUA",
+            "CORRENTE",
+            "NATUREZA",
+            "PONTE",
+            "PEIXE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "78",
+        "word": "ROSA",
+        "forbiddenWords": [
+            "FLOR",
+            "VERMELHA",
+            "ESPINHO",
+            "PERFUME",
+            "JARDIM"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "79",
+        "word": "SANDUÍCHE",
+        "forbiddenWords": [
+            "PÃO",
+            "RECHEIO",
+            "COMER",
+            "LANCHE",
+            "FRIO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "80",
+        "word": "SAPO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "PULAR",
+            "VERDE",
+            "LAGO",
+            "ANFÍBIO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "81",
+        "word": "SOFÁ",
+        "forbiddenWords": [
+            "SENTAR",
+            "SALA",
+            "CONFORTO",
+            "ALMOFADA",
+            "DESCANSAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "82",
+        "word": "SORVETE",
+        "forbiddenWords": [
+            "GELADO",
+            "DOCE",
+            "VERÃO",
+            "CASQUINHA",
+            "SABOR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "83",
+        "word": "TAPETE",
+        "forbiddenWords": [
+            "CHÃO",
+            "DECORAÇÃO",
+            "TECIDO",
+            "CASA",
+            "PISO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "84",
+        "word": "TEATRO",
+        "forbiddenWords": [
+            "PEÇA",
+            "PALCO",
+            "ATOR",
+            "PÚBLICO",
+            "CENA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "85",
+        "word": "TESOURA",
+        "forbiddenWords": [
+            "CORTAR",
+            "PAPEL",
+            "LÂMINA",
+            "OBJETO",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "86",
+        "word": "TIGELA",
+        "forbiddenWords": [
+            "RECIPIENTE",
+            "COMIDA",
+            "COZINHA",
+            "REDONDA",
+            "VIDRO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "87",
+        "word": "TORRE",
+        "forbiddenWords": [
+            "ALTA",
+            "PRÉDIO",
+            "VISÃO",
+            "ESTRUTURA",
+            "PEDRA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "88",
+        "word": "TRAVESSEIRO",
+        "forbiddenWords": [
+            "DORMIR",
+            "CABEÇA",
+            "CAMA",
+            "CONFORTO",
+            "NOITE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "89",
+        "word": "TREM",
+        "forbiddenWords": [
+            "TRILHO",
+            "VIAGEM",
+            "TRANSPORTE",
+            "ESTAÇÃO",
+            "VAGÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "90",
+        "word": "VENTILADOR",
+        "forbiddenWords": [
+            "VENTO",
+            "CALOR",
+            "GIRAR",
+            "LIGAR",
+            "FRESCO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "91",
+        "word": "VIDRO",
+        "forbiddenWords": [
+            "TRANSPARENTE",
+            "QUEBRAR",
+            "JANELA",
+            "REFLEXO",
+            "FRÁGIL"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "92",
+        "word": "VIOLINO",
+        "forbiddenWords": [
+            "MÚSICA",
+            "CORDA",
+            "ARCO",
+            "INSTRUMENTO",
+            "SOM"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "93",
+        "word": "ZÍPER",
+        "forbiddenWords": [
+            "ROUPA",
+            "ABRIR",
+            "FECHAR",
+            "METAL",
+            "CASACO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "94",
+        "word": "ZOOLOGICO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "VISITA",
+            "JAULA",
+            "PÚBLICO",
+            "PASSEIO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "95",
+        "word": "BALANÇO",
+        "forbiddenWords": [
+            "PARQUE",
+            "CRIANÇA",
+            "PENDURAR",
+            "BRINCAR",
+            "MOVIMENTO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "96",
+        "word": "BÚSSOLA",
+        "forbiddenWords": [
+            "DIREÇÃO",
+            "NORTE",
+            "ORIENTAÇÃO",
+            "MAPA",
+            "AGULHA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "97",
+        "word": "CALENDÁRIO",
+        "forbiddenWords": [
+            "DATA",
+            "DIA",
+            "MÊS",
+            "ANO",
+            "MARCAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "98",
+        "word": "CARTÃO",
+        "forbiddenWords": [
+            "PLÁSTICO",
+            "PAGAR",
+            "BANCO",
+            "CRÉDITO",
+            "DÉBITO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "99",
+        "word": "COBRA",
+        "forbiddenWords": [
+            "ANIMAL",
+            "RÉPTIL",
+            "VENENO",
+            "RASTEJAR",
+            "SELVA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "100",
+        "word": "COLCHÃO",
+        "forbiddenWords": [
+            "CAMA",
+            "DORMIR",
+            "CONFORTO",
+            "MACIO",
+            "NOITE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "101",
+        "word": "CORDA",
+        "forbiddenWords": [
+            "AMARRAR",
+            "PUXAR",
+            "FORTE",
+            "NÓ",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "102",
+        "word": "ESCOVA",
+        "forbiddenWords": [
+            "LIMPAR",
+            "CERDA",
+            "DENTE",
+            "CABELE",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "103",
+        "word": "FAROL",
+        "forbiddenWords": [
+            "LUZ",
+            "CARRO",
+            "NOITE",
+            "ILUMINAR",
+            "ESTRADA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "104",
+        "word": "GARRAFA",
+        "forbiddenWords": [
+            "BEBIDA",
+            "TAMPA",
+            "VIDRO",
+            "PLÁSTICO",
+            "ÁGUA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "105",
+        "word": "HELICÓPTERO",
+        "forbiddenWords": [
+            "VOAR",
+            "HÉLICE",
+            "AR",
+            "RESGATE",
+            "TRANSPORTE"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "106",
+        "word": "IMPOSTO",
+        "forbiddenWords": [
+            "PAGAR",
+            "GOVERNO",
+            "DINHEIRO",
+            "TAXA",
+            "COBRANÇA"
+        ],
+        "difficulty": "hard"
+    },
+    {
+        "id": "107",
+        "word": "LABIRINTO",
+        "forbiddenWords": [
+            "CAMINHO",
+            "PERDER",
+            "SAÍDA",
+            "CONFUSÃO",
+            "DESAFIO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "108",
+        "word": "MICROFONE",
+        "forbiddenWords": [
+            "VOZ",
+            "SOM",
+            "FALAR",
+            "PALCO",
+            "GRAVAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "109",
+        "word": "NAVEGADOR",
+        "forbiddenWords": [
+            "INTERNET",
+            "SITE",
+            "PÁGINA",
+            "ACESSAR",
+            "WEB"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "110",
+        "word": "OBSERVATÓRIO",
+        "forbiddenWords": [
+            "ESTRELA",
+            "CÉU",
+            "TELESCÓPIO",
+            "CIÊNCIA",
+            "ASTRO"
+        ],
+        "difficulty": "hard"
+    },
+    {
+        "id": "111",
+        "word": "PÁ",
+        "forbiddenWords": [
+            "CAVAR",
+            "TERRA",
+            "FERRAMENTA",
+            "AREIA",
+            "JARDIM"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "112",
+        "word": "QUEBRA-CABEÇA",
+        "forbiddenWords": [
+            "PEÇA",
+            "MONTAR",
+            "JOGO",
+            "DESAFIO",
+            "IMAGEM"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "113",
+        "word": "RELÂMPAGO",
+        "forbiddenWords": [
+            "TEMPESTADE",
+            "LUZ",
+            "CÉU",
+            "RÁPIDO",
+            "TROVÃO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "114",
+        "word": "SATÉLITE",
+        "forbiddenWords": [
+            "ESPAÇO",
+            "ÓRBITA",
+            "TERRA",
+            "SINAL",
+            "TECNOLOGIA"
+        ],
+        "difficulty": "hard"
+    },
+    {
+        "id": "115",
+        "word": "TERMÔMETRO",
+        "forbiddenWords": [
+            "TEMPERATURA",
+            "MEDIR",
+            "CALOR",
+            "FRIO",
+            "GRAU"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "116",
+        "word": "URSO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "GRANDE",
+            "PELUDO",
+            "FLORESTA",
+            "HIVERNAÇÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "117",
+        "word": "VULCÃO",
+        "forbiddenWords": [
+            "LAVA",
+            "ERUPÇÃO",
+            "CALOR",
+            "MONTANHA",
+            "MAGMA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "118",
+        "word": "XADREZ",
+        "forbiddenWords": [
+            "JOGO",
+            "TABULEIRO",
+            "REI",
+            "ESTRATÉGIA",
+            "PEÇA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "119",
+        "word": "YOGA",
+        "forbiddenWords": [
+            "EXERCÍCIO",
+            "CORPO",
+            "RESPIRAÇÃO",
+            "POSTURA",
+            "CALMA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "120",
+        "word": "ZUMBIDO",
+        "forbiddenWords": [
+            "SOM",
+            "OUVIDO",
+            "BARULHO",
+            "CONTÍNUO",
+            "CHIADO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "121",
+        "word": "ABAJUR",
+        "forbiddenWords": [
+            "LUZ",
+            "LÂMPADA",
+            "MESA",
+            "ILUMINAR",
+            "DECORAÇÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "122",
+        "word": "ACORDEÃO",
+        "forbiddenWords": [
+            "MÚSICA",
+            "INSTRUMENTO",
+            "FOLE",
+            "TOCAR",
+            "SOM"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "123",
+        "word": "AEROSSOL",
+        "forbiddenWords": [
+            "SPRAY",
+            "GÁS",
+            "PRESSÃO",
+            "LATA",
+            "BORRIFAR"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "124",
+        "word": "ALMOFADA",
+        "forbiddenWords": [
+            "CONFORTO",
+            "SOFÁ",
+            "MACIA",
+            "DECORAÇÃO",
+            "DESCANSO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "125",
+        "word": "ANCORA",
+        "forbiddenWords": [
+            "NAVIO",
+            "MAR",
+            "PESO",
+            "PARAR",
+            "CORRENTE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "126",
+        "word": "ANTENA",
+        "forbiddenWords": [
+            "SINAL",
+            "TV",
+            "RECEPÇÃO",
+            "ONDA",
+            "TOPO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "127",
+        "word": "APITO",
+        "forbiddenWords": [
+            "SOM",
+            "ASSOPRAR",
+            "ALARME",
+            "BARULHO",
+            "METAL"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "128",
+        "word": "AQUARELA",
+        "forbiddenWords": [
+            "PINTURA",
+            "TINTA",
+            "ÁGUA",
+            "ARTE",
+            "PAPEL"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "129",
+        "word": "ARCO",
+        "forbiddenWords": [
+            "CURVA",
+            "FORMA",
+            "FLECHA",
+            "ESTRUTURA",
+            "PONTE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "130",
+        "word": "ASPIRADOR",
+        "forbiddenWords": [
+            "LIMPAR",
+            "POEIRA",
+            "CHÃO",
+            "SUGER",
+            "APARELHO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "131",
+        "word": "ASTEROIDE",
+        "forbiddenWords": [
+            "ESPAÇO",
+            "ROCHA",
+            "ÓRBITA",
+            "PLANETA",
+            "IMPACTO"
+        ],
+        "difficulty": "hard"
+    },
+    {
+        "id": "132",
+        "word": "BALDE",
+        "forbiddenWords": [
+            "ÁGUA",
+            "RECIPIENTE",
+            "CARREGAR",
+            "PLÁSTICO",
+            "LIMPEZA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "133",
+        "word": "BAMBU",
+        "forbiddenWords": [
+            "PLANTA",
+            "VERDE",
+            "CAULE",
+            "NATUREZA",
+            "MADEIRA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "134",
+        "word": "BANDEIRA",
+        "forbiddenWords": [
+            "PAÍS",
+            "CORES",
+            "SÍMBOLO",
+            "HASTE",
+            "NACIONAL"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "135",
+        "word": "BINÓCULO",
+        "forbiddenWords": [
+            "VER",
+            "LONGE",
+            "LENTE",
+            "AMPLIAR",
+            "OBSERVAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "136",
+        "word": "BORRACHA",
+        "forbiddenWords": [
+            "APAGAR",
+            "LÁPIS",
+            "ESCOLA",
+            "OBJETO",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "137",
+        "word": "BÚFALO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "GRANDE",
+            "CHIFRE",
+            "SELVA",
+            "FORTE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "138",
+        "word": "CABIDE",
+        "forbiddenWords": [
+            "ROUPA",
+            "PENDURAR",
+            "ARMÁRIO",
+            "GANCHO",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "139",
+        "word": "CADEADO",
+        "forbiddenWords": [
+            "FECHAR",
+            "SEGURANÇA",
+            "CHAVE",
+            "METAL",
+            "TRAVAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "140",
+        "word": "CALHA",
+        "forbiddenWords": [
+            "TELHADO",
+            "ÁGUA",
+            "CHUVA",
+            "ESCOAR",
+            "CASA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "141",
+        "word": "CAMPANHA",
+        "forbiddenWords": [
+            "SINO",
+            "SOM",
+            "TOCAR",
+            "IGREJA",
+            "ALARME"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "142",
+        "word": "CANDELABRO",
+        "forbiddenWords": [
+            "VELA",
+            "LUZ",
+            "SUPORTE",
+            "DECORAÇÃO",
+            "METAL"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "143",
+        "word": "CARRETEL",
+        "forbiddenWords": [
+            "LINHA",
+            "ENROLAR",
+            "COSTURA",
+            "RODAR",
+            "OBJETO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "144",
+        "word": "CARROÇA",
+        "forbiddenWords": [
+            "TRANSPORTE",
+            "RODA",
+            "ANIMAL",
+            "ANTIGO",
+            "MADEIRA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "145",
+        "word": "CATA-VENTO",
+        "forbiddenWords": [
+            "VENTO",
+            "GIRAR",
+            "AR",
+            "MOVIMENTO",
+            "BRINQUEDO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "146",
+        "word": "CAVERNA",
+        "forbiddenWords": [
+            "ROCHA",
+            "ESCURA",
+            "ENTRADA",
+            "SUBTERRÂNEO",
+            "NATUREZA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "147",
+        "word": "CEREJA",
+        "forbiddenWords": [
+            "FRUTA",
+            "VERMELHA",
+            "DOCE",
+            "PEQUENA",
+            "BOLO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "148",
+        "word": "CHAMINÉ",
+        "forbiddenWords": [
+            "FUMAÇA",
+            "CASA",
+            "FOGO",
+            "TELHADO",
+            "SAÍDA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "149",
+        "word": "CLARINETE",
+        "forbiddenWords": [
+            "MÚSICA",
+            "INSTRUMENTO",
+            "SOPRO",
+            "MADEIRA",
+            "SOM"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "150",
+        "word": "COFRE",
+        "forbiddenWords": [
+            "GUARDAR",
+            "DINHEIRO",
+            "SEGURANÇA",
+            "METAL",
+            "TRAVA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "151",
+        "word": "COLMEIA",
+        "forbiddenWords": [
+            "ABELHA",
+            "MEL",
+            "CAIXA",
+            "INSETO",
+            "NINHO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "152",
+        "word": "COMPASSO",
+        "forbiddenWords": [
+            "DESENHO",
+            "CÍRCULO",
+            "MEDIR",
+            "ESCOLA",
+            "GEOMETRIA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "153",
+        "word": "CONCHA",
+        "forbiddenWords": [
+            "MAR",
+            "PRAIA",
+            "CASCA",
+            "OBJETO",
+            "SOM"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "154",
+        "word": "CONFETE",
+        "forbiddenWords": [
+            "FESTA",
+            "PAPEL",
+            "COLORIDO",
+            "JOGAR",
+            "ALEGRIA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "155",
+        "word": "CORUJA",
+        "forbiddenWords": [
+            "AVE",
+            "NOITE",
+            "OLHO",
+            "VOAR",
+            "SÁBIA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "156",
+        "word": "CRATERA",
+        "forbiddenWords": [
+            "BURACO",
+            "IMPACTO",
+            "SOLO",
+            "LUA",
+            "MARCA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "157",
+        "word": "CRISTAIS",
+        "forbiddenWords": [
+            "PEDRA",
+            "BRILHO",
+            "FORMA",
+            "MINERAL",
+            "TRANSPARENTE"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "158",
+        "word": "CROCODILO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "RÉPTIL",
+            "DENTE",
+            "RIO",
+            "PERIGOSO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "159",
+        "word": "CUPIM",
+        "forbiddenWords": [
+            "INSETO",
+            "MADEIRA",
+            "COMER",
+            "PRAGA",
+            "CASA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "160",
+        "word": "DIAMANTE",
+        "forbiddenWords": [
+            "PEDRA",
+            "BRILHO",
+            "JOIA",
+            "DURO",
+            "CARO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "161",
+        "word": "DOMINÓ",
+        "forbiddenWords": [
+            "JOGO",
+            "PEÇA",
+            "MESA",
+            "NÚMERO",
+            "FILEIRA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "162",
+        "word": "ECOSSISTEMA",
+        "forbiddenWords": [
+            "NATUREZA",
+            "ANIMAL",
+            "PLANTA",
+            "EQUILÍBRIO",
+            "AMBIENTE"
+        ],
+        "difficulty": "hard"
+    },
+    {
+        "id": "163",
+        "word": "ENGRENAGEM",
+        "forbiddenWords": [
+            "RODA",
+            "MECÂNICA",
+            "DENTE",
+            "GIRAR",
+            "MÁQUINA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "164",
+        "word": "ESCORPIÃO",
+        "forbiddenWords": [
+            "ANIMAL",
+            "VENENO",
+            "CAUDA",
+            "ARANHA",
+            "DESERTO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "165",
+        "word": "ESPONJA",
+        "forbiddenWords": [
+            "LIMPAR",
+            "ÁGUA",
+            "MACIA",
+            "ESPUMA",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "166",
+        "word": "ESTOJO",
+        "forbiddenWords": [
+            "GUARDAR",
+            "CANETA",
+            "ESCOLA",
+            "ZIPER",
+            "OBJETO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "167",
+        "word": "FANTOCHE",
+        "forbiddenWords": [
+            "BONECO",
+            "MÃO",
+            "TEATRO",
+            "BRINCAR",
+            "INFANTIL"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "168",
+        "word": "FERRADURA",
+        "forbiddenWords": [
+            "CAVALO",
+            "METAL",
+            "SORTE",
+            "PATA",
+            "PROTEÇÃO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "169",
+        "word": "FLAUTA",
+        "forbiddenWords": [
+            "MÚSICA",
+            "INSTRUMENTO",
+            "SOPRO",
+            "SOM",
+            "TOCAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "170",
+        "word": "FÓSSIL",
+        "forbiddenWords": [
+            "ANTIGO",
+            "PEDRA",
+            "DINOSSAURO",
+            "OSSO",
+            "HISTÓRIA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "171",
+        "word": "GANSO",
+        "forbiddenWords": [
+            "AVE",
+            "PENA",
+            "LAGO",
+            "GRASNA",
+            "ANIMAL"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "172",
+        "word": "GARGAREJO",
+        "forbiddenWords": [
+            "ÁGUA",
+            "BOCA",
+            "LIMPAR",
+            "GARGANTA",
+            "SOM"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "173",
+        "word": "GIZ",
+        "forbiddenWords": [
+            "QUADRO",
+            "ESCOLA",
+            "ESCREVER",
+            "BRANCO",
+            "POEIRA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "174",
+        "word": "GRAVATA",
+        "forbiddenWords": [
+            "ROUPA",
+            "PESCOÇO",
+            "FORMAL",
+            "CAMISA",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "175",
+        "word": "GUINDASTE",
+        "forbiddenWords": [
+            "LEVANTAR",
+            "PESO",
+            "OBRA",
+            "CONSTRUÇÃO",
+            "ALTO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "176",
+        "word": "HARMÔNICA",
+        "forbiddenWords": [
+            "MÚSICA",
+            "SOPRO",
+            "INSTRUMENTO",
+            "BOCA",
+            "SOM"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "177",
+        "word": "HORIZONTE",
+        "forbiddenWords": [
+            "LINHA",
+            "DISTÂNCIA",
+            "CÉU",
+            "VISÃO",
+            "LONGE"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "178",
+        "word": "IGLU",
+        "forbiddenWords": [
+            "GELO",
+            "CASA",
+            "FRIO",
+            "NEVE",
+            "ESQUIMÓ"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "179",
+        "word": "INCUBADORA",
+        "forbiddenWords": [
+            "AQUECER",
+            "OVO",
+            "BEBÊ",
+            "PROTEGER",
+            "TEMPERATURA"
+        ],
+        "difficulty": "hard"
+    },
+    {
+        "id": "180",
+        "word": "INSETICIDA",
+        "forbiddenWords": [
+            "MATA",
+            "INSETO",
+            "SPRAY",
+            "VENENO",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "181",
+        "word": "JANGADA",
+        "forbiddenWords": [
+            "MAR",
+            "MADEIRA",
+            "FLOTAR",
+            "BARCO",
+            "SIMPLES"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "182",
+        "word": "JAQUETA",
+        "forbiddenWords": [
+            "ROUPA",
+            "FRIO",
+            "VESTIR",
+            "CASACO",
+            "MANGA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "183",
+        "word": "KARAOKÊ",
+        "forbiddenWords": [
+            "CANTAR",
+            "MÚSICA",
+            "TELA",
+            "MICROFONE",
+            "LETRA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "184",
+        "word": "LANTERNA",
+        "forbiddenWords": [
+            "LUZ",
+            "PORTÁTIL",
+            "ESCURIDÃO",
+            "ILUMINAR",
+            "PILHA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "185",
+        "word": "LEME",
+        "forbiddenWords": [
+            "NAVIO",
+            "DIREÇÃO",
+            "COMANDAR",
+            "BARCO",
+            "GUIAR"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "186",
+        "word": "LUPA",
+        "forbiddenWords": [
+            "AUMENTAR",
+            "VER",
+            "DETALHE",
+            "LENTE",
+            "OBJETO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "187",
+        "word": "MÁSCARA",
+        "forbiddenWords": [
+            "ROSTO",
+            "COBRIR",
+            "FANTASIA",
+            "PROTEGER",
+            "USAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "188",
+        "word": "METEORO",
+        "forbiddenWords": [
+            "ESPAÇO",
+            "LUZ",
+            "CÉU",
+            "CAIR",
+            "ROCHA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "189",
+        "word": "MOINHO",
+        "forbiddenWords": [
+            "VENTO",
+            "GIRAR",
+            "FARINHA",
+            "ENERGIA",
+            "PÁS"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "190",
+        "word": "MOSAICO",
+        "forbiddenWords": [
+            "ARTE",
+            "PEÇA",
+            "IMAGEM",
+            "COLORIDO",
+            "MONTAR"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "191",
+        "word": "NEBULOSA",
+        "forbiddenWords": [
+            "ESPAÇO",
+            "GÁS",
+            "ESTRELA",
+            "COR",
+            "UNIVERSO"
+        ],
+        "difficulty": "hard"
+    },
+    {
+        "id": "192",
+        "word": "NÉCTAR",
+        "forbiddenWords": [
+            "FLOR",
+            "DOCE",
+            "ABELHA",
+            "LÍQUIDO",
+            "PLANTA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "193",
+        "word": "ORIGAMI",
+        "forbiddenWords": [
+            "PAPEL",
+            "DOBRAR",
+            "ARTE",
+            "FORMA",
+            "JAPONÊS"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "194",
+        "word": "PÁRA-CHOQUE",
+        "forbiddenWords": [
+            "CARRO",
+            "IMPACTO",
+            "FRENTE",
+            "PROTEÇÃO",
+            "VEÍCULO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "195",
+        "word": "PÉROLA",
+        "forbiddenWords": [
+            "JOIA",
+            "CONCHA",
+            "MAR",
+            "BRANCA",
+            "RARA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "196",
+        "word": "PINGENTE",
+        "forbiddenWords": [
+            "JOIA",
+            "COLAR",
+            "PENDURAR",
+            "DECORAÇÃO",
+            "METAL"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "197",
+        "word": "PLANADOR",
+        "forbiddenWords": [
+            "VOAR",
+            "ASA",
+            "AR",
+            "SILENCIOSO",
+            "ALTURA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "198",
+        "word": "PROJETOR",
+        "forbiddenWords": [
+            "IMAGEM",
+            "TELA",
+            "LUZ",
+            "APRESENTAÇÃO",
+            "VIDEO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "199",
+        "word": "QUIMERA",
+        "forbiddenWords": [
+            "MITO",
+            "CRIATURA",
+            "IMAGINÁRIO",
+            "MISTO",
+            "LENDA"
+        ],
+        "difficulty": "hard"
+    },
+    {
+        "id": "200",
+        "word": "QUINTAL",
+        "forbiddenWords": [
+            "CASA",
+            "EXTERNO",
+            "PLANTA",
+            "ESPAÇO",
+            "TERRENO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "201",
+        "word": "RAPOSA",
+        "forbiddenWords": [
+            "ANIMAL",
+            "ASTUTA",
+            "PELO",
+            "FLORESTA",
+            "SELVA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "202",
+        "word": "REDE",
+        "forbiddenWords": [
+            "DESCANSAR",
+            "BALANÇAR",
+            "CORDA",
+            "DORMIR",
+            "PENDURAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "203",
+        "word": "ROLDANA",
+        "forbiddenWords": [
+            "GIRAR",
+            "CORDA",
+            "PESO",
+            "MECÂNICA",
+            "AUXÍLIO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "204",
+        "word": "ROTEADOR",
+        "forbiddenWords": [
+            "INTERNET",
+            "SINAL",
+            "WIFI",
+            "REDE",
+            "CONECTAR"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "205",
+        "word": "SINO",
+        "forbiddenWords": [
+            "TOCAR",
+            "SOM",
+            "METAL",
+            "IGREJA",
+            "BARULHO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "206",
+        "word": "SIRENE",
+        "forbiddenWords": [
+            "ALARME",
+            "SOM",
+            "EMERGÊNCIA",
+            "BARULHO",
+            "ALTO"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "207",
+        "word": "TELESCÓPIO",
+        "forbiddenWords": [
+            "ESPAÇO",
+            "VER",
+            "LONGE",
+            "ESTRELA",
+            "LENTE"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "208",
+        "word": "TÊNIS",
+        "forbiddenWords": [
+            "CALÇADO",
+            "PÉ",
+            "ESPORTE",
+            "CORRER",
+            "AMARRAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "209",
+        "word": "TRATOR",
+        "forbiddenWords": [
+            "CAMPO",
+            "MÁQUINA",
+            "AGRÍCOLA",
+            "RODA",
+            "FORTE"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "210",
+        "word": "TURBINA",
+        "forbiddenWords": [
+            "GIRAR",
+            "ENERGIA",
+            "AR",
+            "MÁQUINA",
+            "FORÇA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "211",
+        "word": "URTIGA",
+        "forbiddenWords": [
+            "PLANTA",
+            "QUEIMAR",
+            "TOQUE",
+            "VERDE",
+            "NATUREZA"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "212",
+        "word": "VAGALUME",
+        "forbiddenWords": [
+            "INSETO",
+            "LUZ",
+            "NOITE",
+            "BRILHO",
+            "VOAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "213",
+        "word": "VÁLVULA",
+        "forbiddenWords": [
+            "ABRIR",
+            "FECHAR",
+            "PRESSÃO",
+            "CONTROLE",
+            "FLUXO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "214",
+        "word": "VASSOURA",
+        "forbiddenWords": [
+            "LIMPAR",
+            "CHÃO",
+            "VARrer",
+            "CABO",
+            "CASA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "215",
+        "word": "VITRINE",
+        "forbiddenWords": [
+            "LOJA",
+            "VIDRO",
+            "EXIBIR",
+            "PRODUTO",
+            "MOSTRAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "216",
+        "word": "XAROPE",
+        "forbiddenWords": [
+            "DOCE",
+            "LÍQUIDO",
+            "REMEDIO",
+            "ESPESSO",
+            "GARRAFA"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "217",
+        "word": "XILOFONE",
+        "forbiddenWords": [
+            "MÚSICA",
+            "INSTRUMENTO",
+            "BATER",
+            "MADEIRA",
+            "SOM"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "218",
+        "word": "ZANGÃO",
+        "forbiddenWords": [
+            "ABELHA",
+            "INSETO",
+            "VOAR",
+            "SOM",
+            "PICAR"
+        ],
+        "difficulty": "easy"
+    },
+    {
+        "id": "219",
+        "word": "ZODÍACO",
+        "forbiddenWords": [
+            "SIGNO",
+            "ASTROLOGIA",
+            "MAPA",
+            "ESTRELA",
+            "HORÓSCOPO"
+        ],
+        "difficulty": "medium"
+    },
+    {
+        "id": "220",
+        "word": "ZONA",
+        "forbiddenWords": [
+            "ÁREA",
+            "REGIÃO",
+            "DIVISÃO",
+            "LOCAL",
+            "ESPAÇO"
+        ],
+        "difficulty": "easy"
+    }
+]
