@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# 🚫 Não Pode!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao **Não Pode!**, uma versão digital moderna e divertida do clássico jogo de adivinhação "Tabu". O objetivo é simples: faça sua equipe adivinhar a palavra secreta sem dizer nenhuma das palavras proibidas!
 
-Currently, two official plugins are available:
+![Status do Projeto](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow)
+![AI Engineered](https://img.shields.io/badge/AI-Encoded_by_Google_Gemini-blue)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🤖 Jogo Desenvolvido por IA
 
-## React Compiler
+Este projeto foi **inteiramente arquitetado e codificado com a assistência de Inteligência Artificial**. 
+Utilizando modelos avançados de IA (Google Gemini), desde a concepção da interface até a lógica de estado global e persistência de dados.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 🎮 Como Jogar
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Forme Equipes**: Divida os jogadores em 2 ou mais equipes.
+2.  **Configure**: Escolha o tempo da rodada, número de cartas e se deseja ativar o modo "Prendas".
+3.  **Jogue**:
+    *   Um jogador (o "Dador de Dicas") vê a carta no celular/computador.
+    *   Ele deve descrever a **Palavra Chave** (no topo) para sua equipe.
+    *   **NÃO PODE** dizer nenhuma das 5 palavras proibidas listadas abaixo.
+4.  **Pontue**:
+    *   ✅ **Acertou**: Se a equipe adivinhar, ganha 1 ponto.
+    *   🚫 **Tabu**: Se o jogador disser uma palavra proibida, a carta é anulada. Se o modo "Prendas" estiver ativo, ele deve cumprir um desafio!
+    *   ⏩ **Pular**: Pode-se pular cartas (configurável), sem pontuar.
+    *   **Penalidade de Prenda**: Se um jogador se recusar ou falhar em cumprir a prenda, a equipe perde **1 ponto**!
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+*   **Frontend**: React (Vite)
+*   **Linguagem**: TypeScript
+*   **Estilização**: Tailwind CSS (Design System responsivo e animações)
+*   **Gerenciamento de Estado**: Zustand
+*   **Roteamento**: React Router
+*   **Ícones**: Lucide React
+*   **Persistência**: Offline-first com JSON estático e LocalStorage
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Como Rodar Localmente
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  Clone o repositório:
+    ```bash
+    git clone https://github.com/seu-usuario/nao-pode.git
+    cd nao-pode
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2.  Instale as dependências:
+    ```bash
+    npm install
+    ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  Rode o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+
+4.  Abra no seu navegador (geralmente em `http://localhost:5173`).
+
+---
+
+<div align="center">
+  <p>Feito com 💜 e muita IA.</p>
+</div>
