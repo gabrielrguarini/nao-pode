@@ -80,7 +80,7 @@ export const GameScreen = () => {
               <p className="text-2xl font-bold mb-8">Palavra proibida dita!</p>
               
               <div className="bg-white/20 p-6 rounded-xl backdrop-blur-sm mb-8 border border-white/30 max-w-lg w-full">
-                  <h3 className="text-xl font-bold mb-2 text-yellow-200">Prenda:</h3>
+                  <h3 className="text-xl font-bold mb-2 text-yellow-200">Dica de Prenda:</h3>
                   <p className="text-2xl">{currentPrenda?.description || "Prenda Misteriosa"}</p> 
               </div>
 

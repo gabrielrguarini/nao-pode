@@ -22,5 +22,305 @@
         "description": "A equipe deve cantar \"Parabéns pra Você\"",
         "type": "group",
         "intensity": "fun"
+    },
+    {
+        "id": "5",
+        "description": "Faça uma careta engraçada por 15 segundos",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "6",
+        "description": "Dance como um robô por 20 segundos",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "7",
+        "description": "Conte uma piada sem rir",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "8",
+        "description": "Fique em um pé só por 30 segundos",
+        "type": "individual",
+        "intensity": "medium"
+    },
+    {
+        "id": "9",
+        "description": "Faça 10 polichinelos",
+        "type": "individual",
+        "intensity": "medium"
+    },
+    {
+        "id": "10",
+        "description": "Fale seu nome ao contrário",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "11",
+        "description": "Imite um macaco",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "12",
+        "description": "Cante um trecho de uma música infantil",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "13",
+        "description": "Faça uma estátua por 1 minuto",
+        "type": "individual",
+        "intensity": "medium"
+    },
+    {
+        "id": "14",
+        "description": "Ande como um pinguim pelo espaço",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "15",
+        "description": "Fale com sotaque por 30 segundos",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "16",
+        "description": "Finja que está atendendo um telefone invisível",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "17",
+        "description": "Faça 15 agachamentos",
+        "type": "individual",
+        "intensity": "hard"
+    },
+    {
+        "id": "18",
+        "description": "Leia a última mensagem recebida em voz alta",
+        "type": "individual",
+        "intensity": "hard"
+    },
+    {
+        "id": "19",
+        "description": "Fique sem falar por 2 rodadas",
+        "type": "individual",
+        "intensity": "medium"
+    },
+    {
+        "id": "20",
+        "description": "Faça uma imitação de alguém do grupo",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "21",
+        "description": "Dê três pulinhos seguidos",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "22",
+        "description": "Faça um discurso de 30 segundos sobre um objeto aleatório",
+        "type": "individual",
+        "intensity": "medium"
+    },
+    {
+        "id": "23",
+        "description": "Troque de lugar com alguém à sua escolha",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "24",
+        "description": "O grupo deve bater palmas por 20 segundos",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "25",
+        "description": "Todos devem fazer uma pose de super-herói",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "26",
+        "description": "O grupo deve cantar uma música escolhida",
+        "type": "group",
+        "intensity": "medium"
+    },
+    {
+        "id": "27",
+        "description": "Todos devem ficar em silêncio por 30 segundos",
+        "type": "group",
+        "intensity": "medium"
+    },
+    {
+        "id": "28",
+        "description": "O grupo deve imitar animais diferentes ao mesmo tempo",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "29",
+        "description": "Faça 10 flexões (ou tente)",
+        "type": "individual",
+        "intensity": "hard"
+    },
+    {
+        "id": "30",
+        "description": "Conte até 20 pulando os números pares",
+        "type": "individual",
+        "intensity": "medium"
+    },
+    {
+        "id": "31",
+        "description": "Faça uma coreografia inventada na hora",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "32",
+        "description": "Finja que está escovando os dentes sem escova",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "33",
+        "description": "Fale três qualidades de alguém do grupo",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "34",
+        "description": "Faça uma caminhada em câmera lenta",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "35",
+        "description": "O grupo deve criar um grito de guerra",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "36",
+        "description": "Todos devem dar uma risada falsa juntos",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "37",
+        "description": "O grupo deve contar uma história, cada um dizendo uma palavra",
+        "type": "group",
+        "intensity": "medium"
+    },
+    {
+        "id": "38",
+        "description": "Todos devem levantar e sentar ao mesmo tempo",
+        "type": "group",
+        "intensity": "medium"
+    },
+    {
+        "id": "39",
+        "description": "O grupo deve imitar uma banda famosa",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "40",
+        "description": "Todos devem fazer uma pose engraçada para foto imaginária",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "41",
+        "description": "Fique de olhos fechados por 1 minuto",
+        "type": "individual",
+        "intensity": "medium"
+    },
+    {
+        "id": "42",
+        "description": "Imite um professor bravo",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "43",
+        "description": "Faça uma pergunta aleatória para o grupo",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "44",
+        "description": "Fale uma trava-língua três vezes seguidas",
+        "type": "individual",
+        "intensity": "medium"
+    },
+    {
+        "id": "45",
+        "description": "Finja que ganhou um prêmio importante",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "46",
+        "description": "O grupo deve escolher um líder por 1 rodada",
+        "type": "group",
+        "intensity": "medium"
+    },
+    {
+        "id": "47",
+        "description": "Todos devem bater o pé no chão ao mesmo tempo",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "48",
+        "description": "O grupo deve fazer uma onda como em estádio",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "49",
+        "description": "Todos devem imitar um personagem de desenho",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "50",
+        "description": "O grupo deve contar até 10 em uníssono",
+        "type": "group",
+        "intensity": "fun"
+    },
+    {
+        "id": "51",
+        "description": "Faça 20 segundos de prancha (ou tente)",
+        "type": "individual",
+        "intensity": "hard"
+    },
+    {
+        "id": "52",
+        "description": "Fale uma frase apenas usando mímica",
+        "type": "individual",
+        "intensity": "medium"
+    },
+    {
+        "id": "53",
+        "description": "Faça uma reverência elegante",
+        "type": "individual",
+        "intensity": "fun"
+    },
+    {
+        "id": "54",
+        "description": "Imite um apresentador de TV",
+        "type": "individual",
+        "intensity": "fun"
     }
 ]

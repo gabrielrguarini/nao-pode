@@ -8,7 +8,7 @@ import { RulesScreen } from './components/game/RulesScreen';
 // Placeholders for screens
 const HomeScreen = () => {
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-purple-600 text-white p-4">
+        <div className="flex flex-col items-center justify-center h-dvh bg-purple-600 text-white p-4">
             <h1 className="text-6xl font-black mb-8 text-yellow-400 drop-shadow-lg tracking-wider transform -rotate-2">
                 NÃO<br/>PODE!
             </h1>

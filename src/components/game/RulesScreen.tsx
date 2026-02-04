@@ -70,7 +70,7 @@ export const RulesScreen = () => {
                             <li>Se o modo <strong>Prendas</strong> estiver ativado, o jogador deve cumprir um desafio engraçado.</li>
                         </ul>
                         <div className="bg-red-900/40 p-4 rounded-lg border border-red-500/30 mt-4">
-                            <h4 className="font-bold text-red-300 mb-2">⚠ Nova Regra: Falha na Prenda</h4>
+                            <h4 className="font-bold text-red-300 mb-2">⚠ Falha na Prenda</h4>
                             <p>
                                 Quem não cumprir a prenda perde <strong>1 ponto</strong> para sua equipe!
                             </p>
