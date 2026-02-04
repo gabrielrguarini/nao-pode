@@ -17,7 +17,7 @@ export const CardDisplay = ({ card }: CardDisplayProps) => {
         className="w-full max-w-sm bg-white rounded-2xl shadow-2xl overflow-hidden text-gray-800 flex flex-col items-center p-6 border-4 border-white"
     >
         <div className="bg-purple-100 w-full py-4 rounded-lg flex items-center justify-center mb-6 shadow-inner">
-            <h2 className="text-3xl font-black text-purple-900 tracking-wider uppercase">{card.word}</h2>
+            <h2 className="text-3xl-fluid font-black text-purple-900 tracking-wider uppercase">{card.word}</h2>
         </div>
 
         <div className="w-full flex-1 flex flex-col gap-3">

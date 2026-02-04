@@ -53,8 +53,8 @@ export const GameScreen = () => {
                     </button>
               </div>
 
-              <h2 className="text-4xl font-bold mb-4">Vez da Equipe</h2>
-              <h1 className="text-6xl font-black text-yellow-400 mb-8 uppercase tracking-widest text-center">{currentTeam?.name}</h1>
+              <h2 className="text-4xl-fluid font-bold mb-4">Vez da Equipe</h2>
+              <h1 className="text-6xl-fluid font-black text-yellow-400 mb-8 uppercase tracking-widest text-center">{currentTeam?.name}</h1>
               <p className="text-xl mb-12 opacity-80">Prepare-se para dar as dicas!</p>
               <Button onClick={startRound} size="lg">COMEÇAR RODADA</Button>
 
