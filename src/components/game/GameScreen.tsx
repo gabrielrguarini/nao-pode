@@ -12,7 +12,14 @@ import { useState } from 'react';
 
 import { Scoreboard } from './Scoreboard';
 
-// ... existing imports ...
+
+const handleCardAction = ({action, setButtonState}:{action: ()=>void, setButtonState: (state: boolean)=>void}) =>{
+  action();
+  setButtonState(true);
+  setTimeout(() => {
+    setButtonState(false);
+  }, 1000);
+}
 
 export const GameScreen = () => {
   const { 
@@ -32,6 +39,8 @@ export const GameScreen = () => {
 
   const navigate = useNavigate();
   const [showExitModal, setShowExitModal] = useState(false);
+  const [buttonState, setButtonState] = useState(false);
+  
 
   // Redirect if game state is invalid for this screen
   if (status === 'setup') {
@@ -180,7 +189,8 @@ export const GameScreen = () => {
              <Button 
                 variant="danger" 
                 className="flex flex-col items-center justify-center py-6"
-                onClick={recordRefusal}
+                onClick={()=>{handleCardAction({action: recordRefusal, setButtonState})}}
+                disabled={buttonState}
              >
                 <Ban size={24} className="mb-1" />
                 <span className="text-xs">TABU</span>
@@ -189,7 +199,8 @@ export const GameScreen = () => {
              <Button 
                 variant="ghost" 
                 className="flex flex-col items-center justify-center py-6 bg-purple-700 hover:bg-purple-600 text-white"
-                onClick={skipCard}
+                onClick={()=>{handleCardAction({action: skipCard, setButtonState})}}
+                disabled={buttonState}
              >
                 <SkipForward size={24} className="mb-1" />
                 <span className="text-xs">PULAR</span>
@@ -198,7 +209,8 @@ export const GameScreen = () => {
              <Button 
                 variant="primary" 
                 className="flex flex-col items-center justify-center py-6"
-                onClick={scoreCard}
+                onClick={()=>{handleCardAction({action: scoreCard, setButtonState})}}
+                disabled={buttonState}
              >
                 <Check size={24} className="mb-1" />
                 <span className="text-xs">ACERTOU</span>
