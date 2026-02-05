@@ -144,15 +144,15 @@ export const SetupScreen = () => {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="flex items-center justify-between bg-white/10 p-3 rounded-lg"
+                            className="flex items-center justify-between bg-white/10 p-3 rounded-lg overflow-hidden"
                         >
-                            <span className="font-semibold">{team.name}</span>
+                            <span className="font-semibold flex-1 min-w-0">{team.name}</span>
                             
                             <button 
                                 onClick={() => handleRemoveTeam(team.id)}
                                 className="text-red-400 hover:text-red-600 transition-colors"
                             >
-                                <Trash2 size={20} />
+                                <Trash2  size={20} />
                             </button>
                         </motion.div>
                     ))}

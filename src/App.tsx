@@ -9,9 +9,10 @@ import { RulesScreen } from './components/game/RulesScreen';
 const HomeScreen = () => {
     return (
         <div className="flex flex-col items-center justify-center h-dvh bg-purple-600 text-white p-4 overflow-hidden">
-            <h1 className="text-6xl font-black mb-8 text-yellow-400 drop-shadow-lg tracking-wider transform -rotate-2">
+            {/* <h1 className="text-6xl font-black mb-8 text-yellow-400 drop-shadow-lg tracking-wider transform -rotate-2">
                 NÃO<br/>PODE!
-            </h1>
+            </h1> */}
+            <img src="/nao-pode.png" alt="Logo" className="w-1/2 mb-8" />
             <div className="flex flex-col gap-4">
                 <button 
                     onClick={() => window.location.href = '/setup'}

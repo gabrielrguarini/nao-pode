@@ -4,12 +4,19 @@ import { Button } from '../common/Button';
 
 export const RulesScreen = () => {
     const navigate = useNavigate();
+    const handleBack = () => {
+  if (window.history.length > 1) {
+    navigate(-1);
+  } else {
+    navigate('/', { replace: true });
+  }
+};
 
     return (
-        <div className="min-h-screen bg-purple-900 text-white p-6 overflow-y-auto">
+        <div className="min-h-dvh bg-purple-900 text-white p-6 overflow-y-auto">
             <header className="max-w-3xl mx-auto flex items-center mb-8">
                 <button 
-                    onClick={() => navigate(-1)} 
+                    onClick={handleBack} 
                     className="p-2 hover:bg-white/10 rounded-full transition-colors mr-4"
                 >
                     <ArrowLeft size={24} />
@@ -84,22 +91,22 @@ export const RulesScreen = () => {
                     </h2>
                     <ul className="space-y-3 opacity-90">
                         <li className="flex items-center gap-3">
-                            <div className="bg-green-500 w-8 h-8 rounded-full flex items-center justify-center font-bold">+1</div>
+                            <div className="bg-green-500 min-w-8 h-8 rounded-full flex items-center justify-center font-bold">+1</div>
                             <span>Para cada palavra adivinhada corretamente.</span>
                         </li>
                         <li className="flex items-center gap-3">
-                            <div className="bg-gray-500 w-8 h-8 rounded-full flex items-center justify-center font-bold">0</div>
+                            <div className="bg-gray-500 min-w-8 h-8 rounded-full flex items-center justify-center font-bold">0</div>
                             <span>Se a carta for pulada (sem penalidade, se permitido).</span>
                         </li>
                          <li className="flex items-center gap-3">
-                            <div className="bg-red-500 w-8 h-8 rounded-full flex items-center justify-center font-bold">-1</div>
+                            <div className="bg-red-500 min-w-8 h-8 rounded-full flex items-center justify-center font-bold">-1</div>
                             <span>Se o jogador falhar em cumprir uma prenda.</span>
                         </li>
                     </ul>
                 </section>
                 
                 <div className="text-center pt-8">
-                    <Button onClick={() => navigate(-1)} size="lg">
+                    <Button onClick={handleBack} size="lg">
                         Voltar
                     </Button>
                 </div>
