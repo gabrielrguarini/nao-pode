@@ -12,8 +12,14 @@ export const GameOverScreen = () => {
   const winner = sortedTeams[0];
 
   const handleRestart = () => {
-      restartGame();
-      navigate('/setup'); // Go back to setup or home
+      restartGame(false); // Conserve teams
+      useGameStore.getState().startGame(); // Start immediately
+      navigate('/game');
+  };
+
+  const handleNewGame = () => {
+      restartGame(true); // Wipe teams
+      navigate('/setup');
   };
 
   return (
@@ -28,7 +34,7 @@ export const GameOverScreen = () => {
             <span className="text-sm uppercase opacity-70">Pontos</span>
         </div>
 
-        <div className="w-full max-w-sm space-y-4">
+        <div className="w-full max-w-sm space-y-4 mb-8">
              {sortedTeams.slice(1).map((team, idx) => (
                  <div key={team.id} className="flex justify-between items-center bg-white/5 p-4 rounded-lg">
                      <span className="font-bold text-white/70">#{idx + 2} {team.name}</span>
@@ -37,9 +43,15 @@ export const GameOverScreen = () => {
              ))}
         </div>
 
-        <Button onClick={handleRestart} className="mt-8 flex items-center gap-2" variant="secondary">
-            <RotateCcw size={20} /> Jogar Novamente
-        </Button>
+        <div className="flex flex-col w-full max-w-xs gap-4">
+            <Button onClick={handleRestart} className="flex items-center justify-center gap-2 py-4 text-lg" variant="secondary">
+                <RotateCcw size={24} /> Jogar Novamente
+            </Button>
+            
+            <Button onClick={handleNewGame} className="bg-white text-purple-900 hover:bg-gray-100 flex items-center justify-center gap-2 py-3">
+                 Novo Jogo (Zero)
+            </Button>
+        </div>
     </div>
   );
 };

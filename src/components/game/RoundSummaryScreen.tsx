@@ -34,7 +34,7 @@ export const RoundSummaryScreen = () => {
                 <div className="flex-1 bg-red-500/20 p-4 rounded-lg flex flex-col items-center">
                     <X className="text-red-400 mb-2" />
                     <span className="font-bold text-2xl">{errors}</span>
-                    <span className="text-xs uppercase">Erros</span>
+                    <span className="text-xs uppercase">TABUS</span>
                 </div>
                  <div className="flex-1 bg-blue-500/20 p-4 rounded-lg flex flex-col items-center">
                     <SkipForward className="text-blue-400 mb-2" />

@@ -46,7 +46,7 @@ interface GameState {
   skipCard: () => void;
   nextTurn: () => void;
   failPrenda: () => void;
-  restartGame: () => void;
+  restartGame: (resetTeams?: boolean) => void;
 }
 
 export const useGameStore = create<GameState>()(
@@ -326,14 +326,14 @@ export const useGameStore = create<GameState>()(
           });
       },
       
-      restartGame: () => {
+      restartGame: (resetTeams: boolean = false) => {
           set((state) => ({ 
               status: 'setup', 
               currentRoundNumber: 0, 
               usedCardIds: [], 
               currentRoundScore: 0,
               roundResults: [],
-              teams: state.teams.map(t => ({ ...t, score: 0 })) 
+              teams: resetTeams ? [] : state.teams.map(t => ({ ...t, score: 0 })) 
           }));
       }
     }),

@@ -10,6 +10,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 
+import { Scoreboard } from './Scoreboard';
+
+// ... existing imports ...
+
 export const GameScreen = () => {
   const { 
     status, 
@@ -23,8 +27,7 @@ export const GameScreen = () => {
     handlePrendaDone,
     failPrenda,
     currentRoundScore,
-    restartGame,
-    currentPrenda
+    currentPrenda,
   } = useGameStore();
 
   const navigate = useNavigate();
@@ -38,8 +41,8 @@ export const GameScreen = () => {
   const currentTeam = teams[currentTeamIndex];
 
   const handleConfirmExit = () => {
-      restartGame();
-      navigate('/');
+      // Don't restartGame() here to allow resuming
+      navigate('/setup');
   };
 
   if (status === 'game_over') {
@@ -55,25 +58,31 @@ export const GameScreen = () => {
                         className="text-white/50 hover:text-white p-2 transition-colors flex items-center"
                     >
                         <XCircle size={24} />
-                  <span className="ml-2 text-white/50 hover:text-white transition-colors text-sm font-bold">SAIR</span>
+                  <span className="ml-2 text-white/50 hover:text-white transition-colors text-sm font-bold">MENU</span>
                     </button>
               </div>
 
               <h2 className="text-4xl-fluid font-bold mb-4">Vez da Equipe</h2>
               <h1 className="text-6xl-fluid font-black text-yellow-400 mb-8 uppercase tracking-widest text-center">{currentTeam?.name}</h1>
+              
+              {/* Show Global Scoreboard here too so they know the score before starting */}
+              <div className="mb-12 transform scale-125">
+                 <Scoreboard />
+              </div>
+
               <p className="text-xl mb-12 opacity-80">Prepare-se para dar as dicas!</p>
               <Button onClick={startRound} size="lg">COMEÇAR RODADA</Button>
 
               <Modal
                   isOpen={showExitModal}
                   onClose={() => setShowExitModal(false)}
-                  title="Sair do Jogo?"
-                  description="Todo o progresso atual será perdido e você voltará para a tela inicial."
-                  confirmText="Sim, Sair"
+                  title="Ir para Configurações?"
+                  description="Você poderá ajustar as configurações do jogo e continuar depois."
+                  confirmText="Sim, Configurações"
                   cancelText="Cancelar"
                   onConfirm={handleConfirmExit}
-                  variant="danger"
-              />
+                  variant="default"
+                  />
           </div>
       );
   }
@@ -117,28 +126,34 @@ export const GameScreen = () => {
         <Modal
             isOpen={showExitModal}
             onClose={() => setShowExitModal(false)}
-            title="Sair do Jogo?"
-            description="O jogo será encerrado e a pontuação atual será perdida."
-            confirmText="Sim, Sair"
+            title="Ir para Configurações?"
+            description="O tempo será pausado. Você poderá ajustar configurações e continuar depois."
+            confirmText="Sim, Configurações"
             cancelText="Cancelar"
             onConfirm={handleConfirmExit}
-            variant="danger"
+            variant="default"
         />
 
         {/* Header */}
-        <header className="w-full flex items-center justify-between mb-4 z-10 px-2">
+        <header className="w-full flex items-center justify-between mb-4 z-10 px-2 relative">
+             {/* Left: Exit */}
             <button 
                 onClick={() => setShowExitModal(true)}
-                className="text-white/50  p-2 transition-colors"
+                className="text-white/50 p-2 transition-colors z-20"
             >
                 <XCircle size={24} />
             </button>
-            <div className="flex flex-col items-center">
-                <span className="text-xs font-bold text-purple-300 uppercase">Equipe</span>
-                <span className="text-xl font-bold text-white">{currentTeam?.name}</span>
+
+            {/* Center: Global Scoreboard (absolute centered) */}
+            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-center pointer-events-none">
+                 <div className="pointer-events-auto">
+                    <Scoreboard />
+                 </div>
             </div>
-            <div className="flex flex-col items-end">
-                <span className="text-xs font-bold text-purple-300 uppercase">Pontos</span>
+
+            {/* Right: Round Score */}
+            <div className="flex flex-col items-end z-20">
+                <span className="text-xs font-bold text-purple-300 uppercase">Pontos Rodada</span>
                 <span className="text-3xl font-black text-yellow-400">{currentRoundScore}</span>
             </div>
         </header>

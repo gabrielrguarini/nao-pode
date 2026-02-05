@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const SetupScreen = () => {
   const navigate = useNavigate();
-  const { teams, addTeam, removeTeam, setSettings, settings, startGame } = useGameStore();
+  const { teams, addTeam, removeTeam, setSettings, settings, startGame, status } = useGameStore();
   const [newTeamName, setNewTeamName] = useState('');
   
   // Local state for settings form
@@ -36,6 +36,14 @@ export const SetupScreen = () => {
     startGame();
     navigate('/game');
   };
+
+  const handleContinue = () => {
+    // Save settings without restarting game
+    setSettings(localSettings);
+    navigate('/game');
+  };
+
+  const hasActiveGame = status !== 'setup' && status !== 'game_over';
 
   return (
     <div className="min-h-dvh bg-gradient-to-br from-purple-900 to-indigo-900 text-white p-6 overflow-y-auto">
@@ -160,17 +168,37 @@ export const SetupScreen = () => {
                 {teams.length === 0 && (
                     <p className="text-purple-300 text-sm text-center italic">Nenhuma equipe adicionada</p>
                 )}
+                
+                {teams.length > 0 && (
+                     <button 
+                        onClick={() => useGameStore.setState({ teams: [] })}
+                        className="text-white/40 text-xs hover:text-red-300 transition-colors w-full text-center mt-2 underline"
+                     >
+                        Limpar todas as equipes
+                     </button>
+                )}
             </div>
         </section>
 
-        <section className="mt-4">
+        <section className="mt-4 flex flex-col gap-3">
+            {hasActiveGame && (
+                <Button 
+                    className="w-full flex items-center justify-center gap-2" 
+                    size="lg"
+                    onClick={handleContinue}
+                    variant="secondary"
+                >
+                    Continuar Jogo <ArrowRight />
+                </Button>
+            )}
+            
             <Button 
                 className="w-full flex items-center justify-center gap-2" 
                 size="lg"
                 disabled={teams.length < 2}
                 onClick={handleStart}
             >
-                Iniciar Jogo <ArrowRight />
+                {hasActiveGame ? 'Recomeçar Jogo' : 'Iniciar Jogo'} <ArrowRight />
             </Button>
             {teams.length < 2 && (
                 <p className="text-red-300 text-xs text-center mt-2">Adicione pelo menos 2 equipes</p>
