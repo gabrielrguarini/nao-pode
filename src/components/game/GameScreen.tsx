@@ -137,7 +137,7 @@ export const GameScreen = () => {
         {/* Header */}
 <header className="w-full relative mb-4 px-2 flex items-center">
   {/* Left: Exit */}
-  <div className="flex-shrink-0 min-w-[40px]">
+  <div className="w-[80px]">
     <button 
       onClick={() => setShowExitModal(true)}
       className="text-white/50 p-2 transition-colors"
@@ -147,14 +147,14 @@ export const GameScreen = () => {
   </div>
 
   {/* Center: Scoreboard (centralizado e responsivo) */}
-  <div className="absolute left-1/2 transform -translate-x-1/2 max-w-[calc(100%-120px)]">
+  <div className="flex-1 flex justify-center">
     <div className="truncate w-full">
       <Scoreboard />
     </div>
   </div>
 
   {/* Right: Round Score */}
-  <div className="flex-shrink-0 min-w-[80px] flex flex-col items-end ml-auto">
+  <div className="w-[80px] flex flex-col items-end">
     <span className="text-xs sm:text-xl font-bold text-purple-300 uppercase">Pontos</span>
     <span className="text-xs sm:text-xl font-black text-yellow-400">{currentRoundScore}</span>
   </div>
