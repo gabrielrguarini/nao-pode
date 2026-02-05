@@ -11,6 +11,13 @@ export type Team = {
   score: number;
   color: string;
   players: string[]; // Player IDs
+  statistics?: {
+    totalCards: number;
+    correct: number;
+    taboos: number;
+    skipped: number;
+    longestStreak: number;
+  };
 };
 
 export type Card = {

@@ -104,9 +104,9 @@ export const useGameStore = create<GameState>()(
       addPlayer: (player: Player) => set((state: GameState) => ({ players: [...state.players, player] })),
       
       startGame: () => {
-        const { settings, allCards } = get();
+        const { settings, allCards, teams } = get();
         // Validate
-        if (settings.mode === 'teams' && get().teams.length < 2) {
+        if (settings.mode === 'teams' && teams.length < 2) {
           console.error("Need at least 2 teams");
           return;
         }
@@ -122,12 +122,25 @@ export const useGameStore = create<GameState>()(
             set((state) => ({ settings: { ...state.settings, cardsPerRound: null } }));
         }
 
+        // Initialize statistics for all teams
+        const teamsWithStats = teams.map(team => ({
+          ...team,
+          statistics: {
+            totalCards: 0,
+            correct: 0,
+            taboos: 0,
+            skipped: 0,
+            longestStreak: 0
+          }
+        }));
+
         set(() => ({
           status: 'turn_ready', // Waiting for first player to start
           currentRoundNumber: 1,
           currentTeamIndex: 0,
           currentPlayerIndex: 0,
           usedCardIds: [],
+          teams: teamsWithStats,
           // Shuffle deck from allCards
           deck: shuffle([...allCards]),
         }));
@@ -190,7 +203,7 @@ export const useGameStore = create<GameState>()(
       },
 
       recordRefusal: () => {
-          const { currentCard, settings, allPrendas } = get();
+          const { currentCard, settings, allPrendas, currentTeamIndex } = get();
           if (!currentCard) return;
 
           // Log result
@@ -205,12 +218,37 @@ export const useGameStore = create<GameState>()(
               ? allPrendas[Math.floor(Math.random() * allPrendas.length)]
               : null;
 
-          set((state: GameState) => ({
-              roundResults: [...state.roundResults, result],
-              usedCardIds: [...state.usedCardIds, currentCard.id],
-              status: settings.prendasEnabled ? 'prenda_alert' : 'playing',
-              currentPrenda: randomPrenda
-          }));
+          set((state: GameState) => {
+              const newTeams = [...state.teams];
+              
+              // Update statistics
+              if (state.settings.mode === 'teams' && newTeams[currentTeamIndex]) {
+                  const currentStats = newTeams[currentTeamIndex].statistics || {
+                      totalCards: 0,
+                      correct: 0,
+                      taboos: 0,
+                      skipped: 0,
+                      longestStreak: 0
+                  };
+                  
+                  newTeams[currentTeamIndex] = {
+                      ...newTeams[currentTeamIndex],
+                      statistics: {
+                          ...currentStats,
+                          totalCards: currentStats.totalCards + 1,
+                          taboos: currentStats.taboos + 1
+                      }
+                  };
+              }
+              
+              return {
+                  teams: newTeams,
+                  roundResults: [...state.roundResults, result],
+                  usedCardIds: [...state.usedCardIds, currentCard.id],
+                  status: settings.prendasEnabled ? 'prenda_alert' : 'playing',
+                  currentPrenda: randomPrenda
+              };
+          });
 
           // If playing continues (no prenda stop), draw next
            if (!settings.prendasEnabled) {
@@ -250,7 +288,7 @@ export const useGameStore = create<GameState>()(
       },
 
       scoreCard: () => {
-          const { currentCard, currentTeamIndex } = get();
+          const { currentCard, currentTeamIndex, roundResults } = get();
           if (!currentCard) return;
 
           const result: RoundResult = {
@@ -259,15 +297,41 @@ export const useGameStore = create<GameState>()(
               timestamp: Date.now()
           };
 
-          // Add score
+          // Add score and update statistics
           set((state: GameState) => {
               const newScore = state.currentRoundScore + 1;
               const newTeams = [...state.teams];
+              
+              // Calculate current streak
+              let currentStreak = 1;
+              for (let i = roundResults.length - 1; i >= 0; i--) {
+                  if (roundResults[i].status === 'correct') {
+                      currentStreak++;
+                  } else {
+                      break;
+                  }
+              }
+              
               // Update team score if in team mode, or just track general score logic
               if (state.settings.mode === 'teams' && newTeams[currentTeamIndex]) {
+                  const currentStats = newTeams[currentTeamIndex].statistics || {
+                      totalCards: 0,
+                      correct: 0,
+                      taboos: 0,
+                      skipped: 0,
+                      longestStreak: 0
+                  };
+                  
                   newTeams[currentTeamIndex] = {
                       ...newTeams[currentTeamIndex],
-                      score: newTeams[currentTeamIndex].score + 1
+                      score: newTeams[currentTeamIndex].score + 1,
+                      statistics: {
+                          totalCards: currentStats.totalCards + 1,
+                          correct: currentStats.correct + 1,
+                          taboos: currentStats.taboos,
+                          skipped: currentStats.skipped,
+                          longestStreak: Math.max(currentStats.longestStreak, currentStreak)
+                      }
                   };
               }
               
@@ -283,7 +347,7 @@ export const useGameStore = create<GameState>()(
       },
 
       skipCard: () => {
-          const { currentCard, settings } = get();
+          const { currentCard, settings, currentTeamIndex } = get();
           if (!settings.allowSkips || !currentCard) return;
 
           const result: RoundResult = {
@@ -292,10 +356,35 @@ export const useGameStore = create<GameState>()(
               timestamp: Date.now()
           };
 
-           set((state: GameState) => ({
-              roundResults: [...state.roundResults, result],
-              usedCardIds: [...state.usedCardIds, currentCard.id]
-          }));
+          set((state: GameState) => {
+              const newTeams = [...state.teams];
+              
+              // Update statistics
+              if (state.settings.mode === 'teams' && newTeams[currentTeamIndex]) {
+                  const currentStats = newTeams[currentTeamIndex].statistics || {
+                      totalCards: 0,
+                      correct: 0,
+                      taboos: 0,
+                      skipped: 0,
+                      longestStreak: 0
+                  };
+                  
+                  newTeams[currentTeamIndex] = {
+                      ...newTeams[currentTeamIndex],
+                      statistics: {
+                          ...currentStats,
+                          totalCards: currentStats.totalCards + 1,
+                          skipped: currentStats.skipped + 1
+                      }
+                  };
+              }
+              
+              return {
+                  teams: newTeams,
+                  roundResults: [...state.roundResults, result],
+                  usedCardIds: [...state.usedCardIds, currentCard.id]
+              };
+          });
 
           get().drawCard();
       },
