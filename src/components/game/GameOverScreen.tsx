@@ -11,7 +11,9 @@ export const GameOverScreen = () => {
 
   // Sort teams by score
   const sortedTeams = [...teams].sort((a, b) => b.score - a.score);
-  const winner = sortedTeams[0];
+  const highestScore = sortedTeams[0]?.score || 0;
+  const winners = sortedTeams.filter(team => team.score === highestScore);
+  const isTie = winners.length > 1;
 
   const handleRestart = () => {
       restartGame(false); // Conserve teams
@@ -42,10 +44,27 @@ export const GameOverScreen = () => {
           <h1 className="text-5xl font-black mb-2 uppercase">Fim de Jogo!</h1>
           
           <div className="bg-white/10 p-8 rounded-2xl border border-white/20 mt-8 backdrop-blur-sm">
-              <h2 className="text-2xl font-bold text-yellow-300 mb-2">🏆 Vencedores</h2>
-              <h3 className="text-4xl font-black uppercase tracking-wider mb-4">{winner?.name}</h3>
-              <span className="text-6xl font-black block mb-2">{winner?.score}</span>
-              <span className="text-sm uppercase opacity-70">Pontos</span>
+              {isTie ? (
+                <>
+                  <h2 className="text-2xl font-bold text-yellow-300 mb-4">🤝 Empate!</h2>
+                  <div className="space-y-3 mb-4">
+                    {winners.map((winner) => (
+                      <h3 key={winner.id} className="text-3xl font-black uppercase tracking-wider">
+                        {winner.name}
+                      </h3>
+                    ))}
+                  </div>
+                  <span className="text-6xl font-black block mb-2">{highestScore}</span>
+                  <span className="text-sm uppercase opacity-70">Pontos</span>
+                </>
+              ) : (
+                <>
+                  <h2 className="text-2xl font-bold text-yellow-300 mb-2">🏆 Vencedores</h2>
+                  <h3 className="text-4xl font-black uppercase tracking-wider mb-4">{winners[0]?.name}</h3>
+                  <span className="text-6xl font-black block mb-2">{highestScore}</span>
+                  <span className="text-sm uppercase opacity-70">Pontos</span>
+                </>
+              )}
           </div>
         </motion.div>
 
