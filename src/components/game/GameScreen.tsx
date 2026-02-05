@@ -135,28 +135,33 @@ export const GameScreen = () => {
         />
 
         {/* Header */}
-        <header className="w-full flex items-center justify-between mb-4 z-10 px-2 relative">
-             {/* Left: Exit */}
-            <button 
-                onClick={() => setShowExitModal(true)}
-                className="text-white/50 p-2 transition-colors z-20"
-            >
-                <XCircle size={24} />
-            </button>
+<header className="w-full relative mb-4 px-2 flex items-center">
+  {/* Left: Exit */}
+  <div className="flex-shrink-0 min-w-[40px]">
+    <button 
+      onClick={() => setShowExitModal(true)}
+      className="text-white/50 p-2 transition-colors"
+    >
+      <XCircle size={24} />
+    </button>
+  </div>
 
-            {/* Center: Global Scoreboard (absolute centered) */}
-            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-center pointer-events-none">
-                 <div className="pointer-events-auto">
-                    <Scoreboard />
-                 </div>
-            </div>
+  {/* Center: Scoreboard (centralizado e responsivo) */}
+  <div className="absolute left-1/2 transform -translate-x-1/2 max-w-[calc(100%-120px)]">
+    <div className="truncate w-full">
+      <Scoreboard />
+    </div>
+  </div>
 
-            {/* Right: Round Score */}
-            <div className="flex flex-col items-end z-20">
-                <span className="text-xs font-bold text-purple-300 uppercase">Pontos Rodada</span>
-                <span className="text-3xl font-black text-yellow-400">{currentRoundScore}</span>
-            </div>
-        </header>
+  {/* Right: Round Score */}
+  <div className="flex-shrink-0 min-w-[80px] flex flex-col items-end ml-auto">
+    <span className="text-xs sm:text-xl font-bold text-purple-300 uppercase">Pontos</span>
+    <span className="text-xs sm:text-xl font-black text-yellow-400">{currentRoundScore}</span>
+  </div>
+</header>
+
+
+
 
         <Timer />
         
