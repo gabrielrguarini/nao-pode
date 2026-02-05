@@ -14,7 +14,7 @@ export const CardDisplay = ({ card }: CardDisplayProps) => {
         animate={{ scale: 1, opacity: 1, rotateY: 0 }}
         exit={{ scale: 0.8, opacity: 0, x: -100 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        className="w-full max-w-sm bg-white rounded-2xl shadow-2xl overflow-hidden text-gray-800 flex flex-col items-center  p-4"
+        className="w-full max-w-sm bg-white rounded-2xl shadow-2xl overflow-hidden text-gray-800 flex flex-col items-center p-4"
     >
         <div className="bg-purple-100 w-full py-3 rounded-lg flex items-center justify-center mb-2 shadow-inner">
             <h2 className="text-3xl-fluid font-black text-purple-900 tracking-wider uppercase">{card.word}</h2>

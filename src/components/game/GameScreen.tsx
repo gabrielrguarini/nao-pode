@@ -121,7 +121,7 @@ export const GameScreen = () => {
     <motion.div 
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }} 
-        className="h-screen bg-purple-800 flex flex-col items-center p-4 relative overflow-hidden"
+        className="h-dvh bg-purple-800 flex flex-col items-center p-4 relative overflow-hidden"
     >
         <Modal
             isOpen={showExitModal}

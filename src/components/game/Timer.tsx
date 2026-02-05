@@ -6,7 +6,7 @@ export const Timer = () => {
   const { roundTimeRemaining, settings, tickTimer, status } = useGameStore();
   
   useEffect(() => {
-    let interval: any;
+    let interval: number;
     if (status === 'playing') {
       interval = setInterval(() => {
         tickTimer();
@@ -19,7 +19,7 @@ export const Timer = () => {
   const isUrgent = roundTimeRemaining <= 10;
 
   return (
-    <div className="w-full max-w-sm mx-auto mb-6">
+    <div className="w-full max-w-sm mx-auto">
         <div className="relative h-4 bg-white/20 rounded-full overflow-hidden">
             <motion.div 
                 className={`absolute top-0 left-0 h-full ${isUrgent ? 'bg-red-500' : 'bg-green-500'}`}
@@ -28,7 +28,7 @@ export const Timer = () => {
                 transition={{ duration: 1, ease: "linear" }}
             />
         </div>
-        <div className={`text-center mt-2 font-mono text-3xl font-bold ${isUrgent ? 'text-red-300 animate-pulse' : 'text-white'}`}>
+        <div className={`text-center font-mono text-3xl font-bold ${isUrgent ? 'text-red-300 animate-pulse' : 'text-white'}`}>
             {roundTimeRemaining}s
         </div>
     </div>
