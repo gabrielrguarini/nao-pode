@@ -5,6 +5,7 @@
 body {
     user-select: none;
     overflow-x: hidden;
+    scrollbar-gutter: stable;
 }
 
 /* Custom Scrollbar Styles */
@@ -14,19 +15,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(88, 28, 135, 0.2); /* Dark purple transparent */
+    background: rgba(88, 28, 135, 0.2);
+    /* Dark purple transparent */
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #a855f7, #7c3aed); /* Purple gradient */
+    background: linear-gradient(to bottom, #a855f7, #7c3aed);
+    /* Purple gradient */
     border-radius: 10px;
     border: 2px solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #facc15; /* Yellow on hover */
+    background: #facc15;
+    /* Yellow on hover */
     background-clip: padding-box;
 }
 

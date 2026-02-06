@@ -80,7 +80,7 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
           initial={{ scale: 0.9, y: 20, opacity: 0 }}
           animate={{ scale: 1, y: 0, opacity: 1 }}
           exit={{ scale: 0.9, y: 20, opacity: 0 }}
-          className="bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-800 w-full max-w-lg rounded-3xl border-2 border-white/20 shadow-2xl overflow-hidden flex flex-col max-h-[95vh] sm:max-h-[90vh]"
+          className="bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-800 w-full max-w-lg rounded-3xl border-2 border-white/20 shadow-2xl overflow-hidden flex flex-col max-h-[95vh] sm:max-h-[90vh] isolate"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -97,7 +97,7 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
           </div>
 
           {/* Content Container (Non-scrollable) */}
-          <div className="flex-1 flex flex-col min-h-0 p-4 sm:p-6 space-y-4 sm:space-y-6">
+          <div className="flex-1 flex flex-col min-h-0 p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-x-hidden">
             {/* Game Mode Selector */}
             <section className="space-y-2">
               <h3 className="text-[10px] sm:text-sm font-bold text-purple-300 uppercase tracking-widest px-1">Modo de Jogo</h3>
@@ -258,7 +258,7 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
                 </Button>
               </div>
 
-              <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-2">
+              <div className="flex-1 overflow-y-auto overflow-x-hidden pr-2 custom-scrollbar space-y-2" style={{ scrollbarGutter: 'stable' }}>
                 <AnimatePresence>
                   {(isTeamMode ? teams : players).map((item) => (
                     <motion.div
