@@ -5,13 +5,13 @@ import { RoundSummaryScreen } from "./RoundSummaryScreen";
 import { GameOverScreen } from "./GameOverScreen";
 import { IndividualGameScreen } from "./IndividualGameScreen";
 import { Button } from "../common/Button";
-import { Modal } from "../common/Modal";
 import { Ban, Check, SkipForward, AlertTriangle, XCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useState } from "react";
 
 import { Scoreboard } from "./Scoreboard";
+import { SettingsModal } from "./SettingsModal";
 
 const handleCardAction = ({
   action,
@@ -44,7 +44,6 @@ export const GameScreen = () => {
     currentPrenda,
   } = useGameStore();
 
-  const navigate = useNavigate();
   const [showExitModal, setShowExitModal] = useState(false);
   const [buttonState, setButtonState] = useState(false);
 
@@ -60,10 +59,7 @@ export const GameScreen = () => {
 
   const currentTeam = teams[currentTeamIndex];
 
-  const handleConfirmExit = () => {
-    // Don't restartGame() here to allow resuming
-    navigate("/setup");
-  };
+
 
   if (status === "game_over") {
     return <GameOverScreen />;
@@ -101,15 +97,9 @@ export const GameScreen = () => {
           COMEÇAR RODADA
         </Button>
 
-        <Modal
+        <SettingsModal
           isOpen={showExitModal}
           onClose={() => setShowExitModal(false)}
-          title="Ir para Configurações?"
-          description="Você poderá ajustar as configurações do jogo e continuar depois."
-          confirmText="Sim, Configurações"
-          cancelText="Cancelar"
-          onConfirm={handleConfirmExit}
-          variant="default"
         />
       </div>
     );
@@ -163,15 +153,9 @@ export const GameScreen = () => {
       animate={{ opacity: 1 }}
       className="h-dvh bg-purple-800 flex flex-col items-center p-4 relative overflow-hidden"
     >
-      <Modal
+      <SettingsModal
         isOpen={showExitModal}
         onClose={() => setShowExitModal(false)}
-        title="Ir para Configurações?"
-        description="O tempo será pausado. Você poderá ajustar configurações e continuar depois."
-        confirmText="Sim, Configurações"
-        cancelText="Cancelar"
-        onConfirm={handleConfirmExit}
-        variant="default"
       />
 
       {/* Header */}

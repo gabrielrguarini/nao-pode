@@ -2,18 +2,20 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useGameStore } from './store/useGameStore';
-import { SetupScreen } from './components/game/SetupScreen';
 import { GameScreen } from './components/game/GameScreen';
 import { RulesScreen } from './components/game/RulesScreen';
+import { SettingsModal } from './components/game/SettingsModal';
+import { useState } from 'react';
 
 // Placeholders for screens
 const HomeScreen = () => {
     const navigate = useNavigate();
     const { status, restartGame, startGame } = useGameStore();
+    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
     const handleNewGame = () => {
         restartGame(true);
-        navigate('/setup');
+        setIsSettingsOpen(true);
     };
 
     const handleRestart = () => {
@@ -71,6 +73,12 @@ const HomeScreen = () => {
                     REGRAS
                 </button>
             </div>
+
+            <SettingsModal 
+                isOpen={isSettingsOpen} 
+                onClose={() => setIsSettingsOpen(false)}
+                onStart={() => navigate('/game')}
+            />
         </div>
     );
 };
@@ -95,7 +103,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-        <Route path="/setup" element={<SetupScreen />} />
         <Route path="/game" element={<GameScreen />} />
         <Route path="/rules" element={<RulesScreen />} />
         <Route path="*" element={<Navigate to="/" replace />} />

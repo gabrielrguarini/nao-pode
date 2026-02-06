@@ -4,11 +4,12 @@ import { CardDisplay } from "./CardDisplay";
 import { RoundSummaryScreen } from "./RoundSummaryScreen";
 import { GameOverScreen } from "./GameOverScreen";
 import { Scoreboard } from "./Scoreboard";
+import { SettingsModal } from "./SettingsModal";
 import { Button } from "../common/Button";
 import { Modal } from "../common/Modal";
 import { Ban, Check, SkipForward, AlertTriangle, XCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useState } from "react";
 
 const handleCardAction = ({
@@ -41,7 +42,6 @@ export const IndividualGameScreen = () => {
     skipRound,
   } = useGameStore();
 
-  const navigate = useNavigate();
   const [showExitModal, setShowExitModal] = useState(false);
   const [buttonState, setButtonState] = useState(false);
   const [showWinnerModal, setShowWinnerModal] = useState(false);
@@ -53,9 +53,7 @@ export const IndividualGameScreen = () => {
   const currentReader = players[currentReaderIndex];
   const sortedScores = [...playerScores].sort((a, b) => b.score - a.score);
 
-  const handleConfirmExit = () => {
-    navigate("/setup");
-  };
+
 
   if (status === "game_over") {
     return <GameOverScreen />;
@@ -112,15 +110,9 @@ export const IndividualGameScreen = () => {
           COMEÇAR RODADA
         </Button>
 
-        <Modal
+        <SettingsModal
           isOpen={showExitModal}
           onClose={() => setShowExitModal(false)}
-          title="Ir para Configurações?"
-          description="Você poderá ajustar as configurações do jogo e continuar depois."
-          confirmText="Sim, Configurações"
-          cancelText="Cancelar"
-          onConfirm={handleConfirmExit}
-          variant="default"
         />
       </div>
     );
@@ -174,15 +166,9 @@ export const IndividualGameScreen = () => {
       animate={{ opacity: 1 }}
       className="h-dvh bg-purple-800 flex flex-col items-center p-4 relative overflow-hidden"
     >
-      <Modal
+      <SettingsModal
         isOpen={showExitModal}
         onClose={() => setShowExitModal(false)}
-        title="Ir para Configurações?"
-        description="O tempo será pausado. Você poderá ajustar configurações e continuar depois."
-        confirmText="Sim, Configurações"
-        cancelText="Cancelar"
-        onConfirm={handleConfirmExit}
-        variant="default"
       />
 
       {/* Winner Selection Modal */}
