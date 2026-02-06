@@ -8,7 +8,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = ({ className, variant = 'primary', size = 'md', ...props }: ButtonProps) => {
-  const baseStyles = 'rounded-full font-bold transition-transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseStyles = 'rounded-full font-bold transition-transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center';
   
   const variants = {
     primary: 'bg-yellow-400 text-purple-900 shadow-lg hover:bg-yellow-300',

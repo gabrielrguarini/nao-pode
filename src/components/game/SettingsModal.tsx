@@ -276,7 +276,7 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
                 <Button
                   onClick={isTeamMode ? handleAddTeam : handleAddPlayer}
                   variant="secondary"
-                  className="rounded-lg sm:rounded-xl px-3 sm:px-4 h-8 sm:h-11"
+                  className="rounded-lg sm:rounded-xl px-3 sm:px-4 h-8 sm:h-11 flex items-center justify-center"
                   disabled={isTeamMode ? !newTeamName.trim() : !newPlayerName.trim()}
                 >
                   <Plus size={18} />
