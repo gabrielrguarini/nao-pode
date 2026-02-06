@@ -394,6 +394,7 @@ export const useGameStore = create<GameState>()(
             }
             return {
               teams: newTeams,
+              currentRoundScore: state.currentRoundScore - 1,
               status: "playing",
             };
           } else {
@@ -412,7 +413,8 @@ export const useGameStore = create<GameState>()(
 
             return {
               playerScores: newScores,
-              status: state.settings.mode === "individual" ? "playing" : "playing", // status will be overridden by nextTurn
+              currentRoundScore: state.currentRoundScore - 1,
+              status: "playing",
             };
           }
         });
