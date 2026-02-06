@@ -366,8 +366,13 @@ export const useGameStore = create<GameState>()(
       },
 
       handlePrendaDone: () => {
-        set({ status: "playing" });
-        get().drawCard();
+        const { settings } = get();
+        if (settings.mode === "individual") {
+          set({ status: "round_summary" });
+        } else {
+          set({ status: "playing" });
+          get().drawCard();
+        }
       },
 
       failPrenda: () => {
@@ -402,12 +407,14 @@ export const useGameStore = create<GameState>()(
 
             return {
               playerScores: newScores,
-              status: "playing",
+              status: state.settings.mode === "individual" ? "round_summary" : "playing",
             };
           }
         });
 
-        get().drawCard();
+        if (get().settings.mode === "teams") {
+          get().drawCard();
+        }
       },
 
       scoreCard: () => {
@@ -745,6 +752,7 @@ export const useGameStore = create<GameState>()(
             roundResults: [...state.roundResults, result],
             usedCardIds: [...state.usedCardIds, currentCard.id],
             status: "round_summary",
+            currentRoundScore: state.currentRoundScore + 1,
             selectedWinnerId: playerId,
           };
         });

@@ -3,6 +3,7 @@ import { Timer } from "./Timer";
 import { CardDisplay } from "./CardDisplay";
 import { RoundSummaryScreen } from "./RoundSummaryScreen";
 import { GameOverScreen } from "./GameOverScreen";
+import { Scoreboard } from "./Scoreboard";
 import { Button } from "../common/Button";
 import { Modal } from "../common/Modal";
 import { Ban, Check, SkipForward, AlertTriangle, XCircle } from "lucide-react";
@@ -212,9 +213,9 @@ export const IndividualGameScreen = () => {
       </Modal>
 
       {/* Header */}
-      <header className="w-full relative mb-4 px-2 flex items-center justify-between">
+      <header className="w-full relative mb-4 px-2 flex items-center">
         {/* Left: Exit */}
-        <div className="w-20">
+        <div className="w-[80px]">
           <button
             onClick={() => setShowExitModal(true)}
             className="text-white/50 p-2 transition-colors"
@@ -223,23 +224,28 @@ export const IndividualGameScreen = () => {
           </button>
         </div>
 
-        {/* Center: Reader Info */}
-        <div className="flex flex-col items-center">
-          <span className="text-xs font-bold text-purple-300 uppercase">
-            Leitor
-          </span>
-          <span className="text-sm font-bold text-yellow-400">
-            {currentReader?.name}
-          </span>
+        {/* Center: Scoreboard (centralizado e responsivo) */}
+        <div className="flex-1 flex justify-center">
+          <div className="truncate w-full">
+            <div className="flex flex-col items-center">
+              <span className="text-[10px] font-bold text-purple-300 uppercase leading-none mb-1">
+                Leitor
+              </span>
+              <span className="text-xs font-bold text-yellow-400 leading-none">
+                {currentReader?.name}
+              </span>
+            </div>
+            <Scoreboard />
+          </div>
         </div>
 
-        {/* Right: Round Score */}
-        <div className="w-20 flex flex-col items-end">
-          <span className="text-xs font-bold text-purple-300 uppercase">
-            Pontos
+        {/* Right: Total Points (como solicitado pelo usuário) */}
+        <div className="w-[80px] flex flex-col items-end">
+          <span className="text-xs sm:text-xl font-bold text-purple-300 uppercase">
+            Total
           </span>
-          <span className="text-lg font-black text-yellow-400">
-            {currentRoundScore}
+          <span className="text-xs sm:text-xl font-black text-yellow-400">
+            {playerScores.find((p) => p.playerId === currentReader?.id)?.score || 0}
           </span>
         </div>
       </header>
