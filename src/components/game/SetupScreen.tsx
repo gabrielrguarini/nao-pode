@@ -69,7 +69,9 @@ export const SetupScreen = () => {
   const hasActiveGame = status !== "setup" && status !== "game_over";
   const isTeamMode = localSettings.mode === "teams";
   const isIndividualMode = localSettings.mode === "individual";
-  const canStart = isTeamMode ? teams.length >= 2 : players.length >= 2;
+  const canStart = isTeamMode 
+    ? teams.length >= 2 
+    : players.length >= 2 && localSettings.scoreToWin > 0;
 
   return (
     <div className="min-h-dvh bg-gradient-to-br from-purple-900 to-indigo-900 text-white p-6 overflow-y-auto">
@@ -107,7 +109,11 @@ export const SetupScreen = () => {
             </button>
             <button
               onClick={() =>
-                setLocalSettings({ ...localSettings, mode: "individual" })
+                setLocalSettings({
+                  ...localSettings,
+                  mode: "individual",
+                  scoreToWin: localSettings.scoreToWin <= 0 ? 10 : localSettings.scoreToWin,
+                })
               }
               className={`flex-1 py-2 px-4 rounded-lg font-semibold transition-all ${
                 isIndividualMode
@@ -382,7 +388,9 @@ export const SetupScreen = () => {
             <p className="text-red-300 text-xs text-center mt-2">
               {isTeamMode
                 ? "Adicione pelo menos 2 equipes"
-                : "Adicione pelo menos 2 jogadores"}
+                : players.length < 2
+                  ? "Adicione pelo menos 2 jogadores"
+                  : "Defina os pontos para vencer (mínimo 1)"}
             </p>
           )}
         </section>
