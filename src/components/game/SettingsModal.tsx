@@ -96,8 +96,8 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
             </button>
           </div>
 
-          {/* Scrollable Content */}
-          <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6 custom-scrollbar">
+          {/* Content Container (Non-scrollable) */}
+          <div className="flex-1 flex flex-col min-h-0 p-4 sm:p-6 space-y-4 sm:space-y-6">
             {/* Game Mode Selector */}
             <section className="space-y-2">
               <h3 className="text-[10px] sm:text-sm font-bold text-purple-300 uppercase tracking-widest px-1">Modo de Jogo</h3>
@@ -225,13 +225,13 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
               </div>
             </section>
 
-            {/* Players/Teams List */}
-            <section className="space-y-2 sm:space-y-4">
-              <h3 className="text-[10px] sm:text-sm font-bold text-purple-300 uppercase tracking-widest flex items-center gap-2 px-1">
+            {/* Players/Teams List Section (Takes remaining space) */}
+            <section className="flex-1 flex flex-col min-h-0 space-y-2 sm:space-y-4">
+              <h3 className="text-[10px] sm:text-sm font-bold text-purple-300 uppercase tracking-widest flex items-center gap-2 px-1 flex-shrink-0">
                 <Users size={14} /> {isTeamMode ? "Equipes" : "Jogadores"}
               </h3>
 
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-shrink-0">
                 <input
                   type="text"
                   placeholder={isTeamMode ? "Nome da Equipe" : "Nome do Jogador"}
@@ -258,7 +258,7 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
                 </Button>
               </div>
 
-              <div className="space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+              <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-2">
                 <AnimatePresence>
                   {(isTeamMode ? teams : players).map((item) => (
                     <motion.div
