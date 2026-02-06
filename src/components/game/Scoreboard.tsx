@@ -164,7 +164,7 @@ export const Scoreboard = () => {
           onClose={() => setIsModalOpen(false)}
           title="Classificação"
         >
-          <div className="space-y-3 mt-4 max-h-[60vh] overflow-y-auto pr-1">
+          <div className="space-y-3 mt-4 max-h-[60vh] overflow-y-auto px-1">
             {getScoresForModal().map((item, idx) => (
               <div
                 key={item.id}
