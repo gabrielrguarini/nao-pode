@@ -35,7 +35,6 @@ export const IndividualGameScreen = () => {
     startRound,
     handlePrendaDone,
     failPrenda,
-    currentRoundScore,
     currentPrenda,
     declareWinner,
     declareTaboo,

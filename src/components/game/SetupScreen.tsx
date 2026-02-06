@@ -382,7 +382,7 @@ export const SetupScreen = () => {
             disabled={!canStart}
             onClick={handleStart}
           >
-            {hasActiveGame ? "Recomeçar Jogo" : "Iniciar Jogo"} <ArrowRight />
+            {hasActiveGame ? "Começar Novo Jogo" : "Iniciar Jogo"} <ArrowRight />
           </Button>
           {!canStart && (
             <p className="text-red-300 text-xs text-center mt-2">

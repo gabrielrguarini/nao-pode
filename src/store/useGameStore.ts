@@ -154,6 +154,7 @@ export const useGameStore = create<GameState>()(
           // Initialize statistics for all teams
           const teamsWithStats = teams.map((team) => ({
             ...team,
+            score: 0,
             statistics: {
               totalCards: 0,
               correct: 0,
