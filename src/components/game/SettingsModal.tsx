@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGameStore } from "../../store/useGameStore";
 import { Button } from "../common/Button";
-import { Input } from "../common/Input";
+
 import { Plus, Settings, Users, ArrowRight, Trash2, X } from "lucide-react";
 
 interface SettingsModalProps {
@@ -80,13 +80,13 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
           initial={{ scale: 0.9, y: 20, opacity: 0 }}
           animate={{ scale: 1, y: 0, opacity: 1 }}
           exit={{ scale: 0.9, y: 20, opacity: 0 }}
-          className="bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-800 w-full max-w-lg rounded-3xl border-2 border-white/20 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+          className="bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-800 w-full max-w-lg rounded-3xl border-2 border-white/20 shadow-2xl overflow-hidden flex flex-col max-h-[95vh] sm:max-h-[90vh]"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="p-6 border-b border-white/10 flex items-center justify-between bg-white/5">
-            <h2 className="text-2xl font-black text-white flex items-center gap-2 uppercase tracking-tight">
-              <Settings className="text-yellow-400" /> Configuração
+          <div className="p-4 sm:p-6 border-b border-white/10 flex items-center justify-between bg-white/5">
+            <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2 uppercase tracking-tight">
+              <Settings className="text-yellow-400" size={20} /> Configuração
             </h2>
             <button
               onClick={onClose}
@@ -97,14 +97,14 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
           </div>
 
           {/* Scrollable Content */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6 custom-scrollbar">
             {/* Game Mode Selector */}
-            <section className="space-y-3">
-              <h3 className="text-sm font-bold text-purple-300 uppercase tracking-widest px-1">Modo de Jogo</h3>
-              <div className="flex gap-2 p-1 bg-black/20 rounded-2xl border border-white/5">
+            <section className="space-y-2">
+              <h3 className="text-[10px] sm:text-sm font-bold text-purple-300 uppercase tracking-widest px-1">Modo de Jogo</h3>
+              <div className="flex gap-1.5 p-1 bg-black/20 rounded-xl sm:rounded-2xl border border-white/5">
                 <button
                   onClick={() => setLocalSettings({ ...localSettings, mode: "teams" })}
-                  className={`flex-1 py-3 px-4 rounded-xl font-bold transition-all ${
+                  className={`flex-1 py-1.5 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl text-xs sm:text-base font-bold transition-all ${
                     isTeamMode
                       ? "bg-yellow-400 text-purple-900 shadow-lg scale-[1.02]"
                       : "text-white/60 hover:text-white hover:bg-white/5"
@@ -120,7 +120,7 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
                       scoreToWin: localSettings.scoreToWin <= 0 ? 10 : localSettings.scoreToWin,
                     })
                   }
-                  className={`flex-1 py-3 px-4 rounded-xl font-bold transition-all ${
+                  className={`flex-1 py-1.5 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl text-xs sm:text-base font-bold transition-all ${
                     isIndividualMode
                       ? "bg-yellow-400 text-purple-900 shadow-lg scale-[1.02]"
                       : "text-white/60 hover:text-white hover:bg-white/5"
@@ -132,16 +132,16 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
             </section>
 
             {/* General Rules */}
-            <section className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-4">
-              <h3 className="text-sm font-bold text-purple-300 uppercase tracking-widest flex items-center gap-2">
-                <Settings size={16} /> Regras
+            <section className="bg-white/5 p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-white/10 space-y-2 sm:space-y-4">
+              <h3 className="text-[10px] sm:text-sm font-bold text-purple-300 uppercase tracking-widest flex items-center gap-2">
+                <Settings size={14} /> Regras
               </h3>
               
-              <div className="space-y-4">
+              <div className="space-y-2 sm:space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold text-white/90">Tempo da Vez</span>
+                  <span className="text-sm sm:text-base font-semibold text-white/90">Tempo da Vez</span>
                   <select
-                    className="bg-purple-800 border-2 border-white/10 rounded-xl p-2 font-bold text-white focus:outline-none focus:border-yellow-400"
+                    className="bg-purple-800 border-2 border-white/10 rounded-lg sm:rounded-xl p-1 sm:p-2 text-xs sm:text-base font-bold text-white focus:outline-none focus:border-yellow-400"
                     value={localSettings.timePerRound}
                     onChange={(e) =>
                       setLocalSettings({ ...localSettings, timePerRound: Number(e.target.value) })
@@ -157,11 +157,11 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
                 {!isIndividualMode && (
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="font-semibold text-white/90 block">Limite de Cartas</span>
-                      <span className="text-[10px] text-purple-300 uppercase font-bold">Encerra a vez ao atingir</span>
+                      <span className="text-sm sm:text-base font-semibold text-white/90 block leading-none">Limite de Cartas</span>
+                      <span className="text-[8px] sm:text-[10px] text-purple-300 uppercase font-bold">Encerra a vez ao atingir</span>
                     </div>
                     <select
-                      className="bg-purple-800 border-2 border-white/10 rounded-xl p-2 font-bold text-white focus:outline-none focus:border-yellow-400"
+                      className="bg-purple-800 border-2 border-white/10 rounded-lg sm:rounded-xl p-1 sm:p-2 text-xs sm:text-base font-bold text-white focus:outline-none focus:border-yellow-400"
                       value={localSettings.cardsPerRound ?? "unlimited"}
                       onChange={(e) => {
                         const val = e.target.value;
@@ -181,13 +181,13 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
 
                 {isTeamMode ? (
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-white/90">Rodadas Totais</span>
+                    <span className="text-sm sm:text-base font-semibold text-white/90">Rodadas Totais</span>
                     <div className="flex items-center gap-3">
                        <input
                         type="number"
                         min="1"
                         max="99"
-                        className="bg-purple-800 border-2 border-white/10 rounded-xl p-2 w-20 text-center font-bold text-white focus:outline-none focus:border-yellow-400"
+                        className="bg-purple-800 border-2 border-white/10 rounded-lg sm:rounded-xl p-1 sm:p-2 w-14 sm:w-20 text-center text-xs sm:text-base font-bold text-white focus:outline-none focus:border-yellow-400"
                         value={localSettings.rounds}
                         onChange={(e) => setLocalSettings({ ...localSettings, rounds: Number(e.target.value) })}
                       />
@@ -195,29 +195,29 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
                   </div>
                 ) : (
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-white/90">Pontos para Vencer</span>
+                    <span className="text-sm sm:text-base font-semibold text-white/90">Pontos para Vencer</span>
                     <input
                       type="number"
                       min="1"
                       max="99"
-                      className="bg-purple-800 border-2 border-white/10 rounded-xl p-2 w-20 text-center font-bold text-white focus:outline-none focus:border-yellow-400"
+                      className="bg-purple-800 border-2 border-white/10 rounded-lg sm:rounded-xl p-1 sm:p-2 w-14 sm:w-20 text-center text-xs sm:text-base font-bold text-white focus:outline-none focus:border-yellow-400"
                       value={localSettings.scoreToWin}
                       onChange={(e) => setLocalSettings({ ...localSettings, scoreToWin: Number(e.target.value) })}
                     />
                   </div>
                 )}
 
-                <div className="flex items-center justify-between pt-2">
-                  <span className="font-semibold text-white/90">Modo Prendas</span>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm sm:text-base font-semibold text-white/90">Modo Prendas</span>
                   <button
                     onClick={() => setLocalSettings((s) => ({ ...s, prendasEnabled: !s.prendasEnabled }))}
-                    className={`w-14 h-7 rounded-full transition-all relative p-1 ${
+                    className={`w-10 sm:w-14 h-5 sm:h-7 rounded-full transition-all relative p-0.5 sm:p-1 ${
                       localSettings.prendasEnabled ? "bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.4)]" : "bg-white/10"
                     }`}
                   >
                     <div
-                      className={`w-5 h-5 bg-white rounded-full transition-all shadow-md ${
-                        localSettings.prendasEnabled ? "translate-x-7" : "translate-x-0"
+                      className={`w-4 sm:w-5 h-4 sm:h-5 bg-white rounded-full transition-all shadow-md ${
+                        localSettings.prendasEnabled ? "translate-x-5 sm:translate-x-7" : "translate-x-0"
                       }`}
                     />
                   </button>
@@ -226,13 +226,14 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
             </section>
 
             {/* Players/Teams List */}
-            <section className="space-y-4">
-              <h3 className="text-sm font-bold text-purple-300 uppercase tracking-widest flex items-center gap-2 px-1">
-                <Users size={16} /> {isTeamMode ? "Equipes" : "Jogadores"}
+            <section className="space-y-2 sm:space-y-4">
+              <h3 className="text-[10px] sm:text-sm font-bold text-purple-300 uppercase tracking-widest flex items-center gap-2 px-1">
+                <Users size={14} /> {isTeamMode ? "Equipes" : "Jogadores"}
               </h3>
 
               <div className="flex gap-2">
-                <Input
+                <input
+                  type="text"
                   placeholder={isTeamMode ? "Nome da Equipe" : "Nome do Jogador"}
                   value={isTeamMode ? newTeamName : newPlayerName}
                   onChange={(e) => isTeamMode ? setNewTeamName(e.target.value) : setNewPlayerName(e.target.value)}
@@ -245,15 +246,15 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
                       }
                     }
                   }}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/30 rounded-xl"
+                  className="flex-1 bg-white/10 border-2 border-white/10 text-white placeholder:text-white/30 rounded-lg sm:rounded-xl px-3 py-1.5 sm:py-2 text-xs sm:text-base focus:outline-none focus:border-yellow-400"
                 />
                 <Button
                   onClick={isTeamMode ? handleAddTeam : handleAddPlayer}
                   variant="secondary"
-                  className="rounded-xl px-4"
+                  className="rounded-lg sm:rounded-xl px-3 sm:px-4 h-8 sm:h-11"
                   disabled={isTeamMode ? !newTeamName.trim() : !newPlayerName.trim()}
                 >
-                  <Plus size={20} />
+                  <Plus size={18} />
                 </Button>
               </div>
 
@@ -265,14 +266,14 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 10 }}
-                      className="flex items-center justify-between bg-white/5 border border-white/5 p-3 rounded-xl group hover:bg-white/10 transition-colors"
+                      className="flex items-center justify-between bg-white/5 border border-white/5 p-2 sm:p-3 rounded-lg sm:rounded-xl group hover:bg-white/10 transition-colors"
                     >
-                      <span className="font-bold text-white/90">{item.name}</span>
+                      <span className="font-bold text-xs sm:text-base text-white/90">{item.name}</span>
                       <button
                         onClick={() => isTeamMode ? removeTeam(item.id) : removePlayer(item.id)}
-                        className="text-white/20 hover:text-red-400 p-1 opacity-0 group-hover:opacity-100 transition-all"
+                        className="text-white/20 hover:text-red-400 p-1 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-all"
                       >
-                        <Trash2 size={18} />
+                        <Trash2 size={16} />
                       </button>
                     </motion.div>
                   ))}
@@ -290,16 +291,16 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
           </div>
 
           {/* Footer Actions */}
-          <div className="p-6 bg-black/20 border-t border-white/10">
+          <div className="p-4 sm:p-6 bg-black/20 border-t border-white/10">
             <Button
-              className="w-full py-6 rounded-2xl text-xl font-black uppercase tracking-tighter flex items-center justify-center gap-3 shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="w-full py-3 sm:py-6 rounded-xl sm:rounded-2xl text-lg sm:text-xl font-black uppercase tracking-tighter flex items-center justify-center gap-3 shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
               disabled={!canStart}
               onClick={handleStart}
             >
-              {status !== 'setup' && status !== 'game_over' ? "Começar Novo Jogo" : "Iniciar Jogo"} <ArrowRight />
+              {status !== 'setup' && status !== 'game_over' ? "Retomar" : "Começar jogo"} <ArrowRight size={20} />
             </Button>
             {!canStart && (
-              <p className="text-red-400 text-[10px] font-bold text-center mt-3 uppercase tracking-wider">
+              <p className="text-red-400 text-[8px] sm:text-[10px] font-bold text-center mt-2 sm:mt-3 uppercase tracking-wider">
                 {isTeamMode
                   ? "Adicione pelo menos 2 equipes"
                   : players.length < 2
