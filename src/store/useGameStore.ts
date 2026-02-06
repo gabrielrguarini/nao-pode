@@ -248,13 +248,17 @@ export const useGameStore = create<GameState>()(
       },
 
       tickTimer: () => {
-        const { roundTimeRemaining, status, endRound } = get();
+        const { roundTimeRemaining, status, endRound, settings, nextTurn } = get();
         if (status !== "playing") return;
 
         if (roundTimeRemaining > 0) {
           set({ roundTimeRemaining: roundTimeRemaining - 1 });
         } else {
-          endRound();
+          if (settings.mode === "individual") {
+            nextTurn();
+          } else {
+            endRound();
+          }
         }
       },
 

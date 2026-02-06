@@ -196,14 +196,6 @@ export const IndividualGameScreen = () => {
         {/* Center: Scoreboard (centralizado e responsivo) */}
         <div className="flex-1 flex justify-center">
           <div className="truncate w-full">
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] font-bold text-purple-300 uppercase leading-none mb-1">
-                Leitor
-              </span>
-              <span className="text-xs font-bold text-yellow-400 leading-none">
-                {currentReader?.name}
-              </span>
-            </div>
             <Scoreboard />
           </div>
         </div>

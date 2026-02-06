@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useGameStore } from "../../store/useGameStore";
 import { motion } from "framer-motion";
 import { Modal } from "../common/Modal";
@@ -88,7 +89,8 @@ export const Scoreboard = () => {
       return [...teams]
         .sort((a, b) => b.score - a.score)
         .map((t) => {
-          const isCurrent = teams.findIndex(team => team.id === t.id) === currentTeamIndex;
+          // Identify if this is the current team using the ID comparison
+          const isCurrent = teams[currentTeamIndex]?.id === t.id;
           return {
             id: t.id,
             name: t.name,
@@ -156,41 +158,47 @@ export const Scoreboard = () => {
         )}
       </div>
 
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="Classificação"
-      >
-        <div className="space-y-3 mt-4 max-h-[60vh] overflow-y-auto pr-1">
-          {getScoresForModal().map((item, idx) => (
-            <div
-              key={item.id}
-              className={`flex justify-between items-center p-3 sm:p-4 rounded-2xl border-2 transition-all ${
-                item.isCurrent
-                  ? "bg-purple-100 border-purple-300 scale-[1.02] shadow-md"
-                  : "bg-gray-50 border-gray-100"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex flex-col">
-                    <div className="flex items-center gap-2">
-                        {idx === 0 && <Trophy size={16} className="text-yellow-500" />}
-                        <span className={`font-black text-sm sm:text-base uppercase tracking-tight ${item.isCurrent ? "text-purple-800" : "text-gray-700"}`}>
-                            {item.name}
-                        </span>
-                    </div>
+      {isModalOpen && createPortal(
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title="Classificação"
+        >
+          <div className="space-y-3 mt-4 max-h-[60vh] overflow-y-auto pr-1">
+            {getScoresForModal().map((item, idx) => (
+              <div
+                key={item.id}
+                className={`flex justify-between items-center p-3 sm:p-4 rounded-2xl border-2 transition-all ${
+                  item.isCurrent
+                    ? "bg-purple-100 border-purple-300 scale-[1.02] shadow-md"
+                    : "bg-gray-50 border-gray-100 opacity-80"
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-purple-200 flex items-center justify-center text-[10px] font-black text-purple-700">
+                    {idx + 1}
+                  </div>
+                  <div className="flex flex-col">
+                      <div className="flex items-center gap-2">
+                          {idx === 0 && <Trophy size={16} className="text-yellow-500" />}
+                          <span className={`font-black text-sm sm:text-base uppercase tracking-tight ${item.isCurrent ? "text-purple-800" : "text-gray-700"}`}>
+                              {item.name}
+                          </span>
+                      </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                   <div className="w-3 h-3 rounded-full opacity-60" style={{ backgroundColor: item.color || "#FBBF24" }} />
+                   <span className={`text-2xl sm:text-3xl font-black ${item.isCurrent ? "text-purple-600" : "text-gray-400"}`}>
+                      {item.score}
+                  </span>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                 <div className="w-3 h-3 rounded-full opacity-60" style={{ backgroundColor: item.color || "#FBBF24" }} />
-                 <span className={`text-2xl sm:text-3xl font-black ${item.isCurrent ? "text-purple-600" : "text-gray-400"}`}>
-                    {item.score}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Modal>
+            ))}
+          </div>
+        </Modal>,
+        document.body
+      )}
     </div>
   );
 };
