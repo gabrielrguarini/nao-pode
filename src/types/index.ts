@@ -25,17 +25,17 @@ export type Card = {
   word: string; // The target word
   forbiddenWords: string[]; // List of 5 forbidden words
   category?: string;
-  difficulty?: 'easy' | 'medium' | 'hard';
+  difficulty?: "easy" | "medium" | "hard";
 };
 
 export type Prenda = {
   id: string;
   description: string;
-  type: 'individual' | 'group';
-  intensity: 'fun' | 'hard';
+  type: "individual" | "group";
+  intensity: "fun" | "hard";
 };
 
-export type GameMode = 'teams' | 'individual';
+export type GameMode = "teams" | "individual";
 
 export type GameSettings = {
   mode: GameMode;
@@ -47,10 +47,32 @@ export type GameSettings = {
   allowSkips: boolean;
 };
 
-export type GameStatus = 'setup' | 'turn_ready' | 'playing' | 'paused' | 'prenda_alert' | 'round_summary' | 'game_over';
+export type GameStatus =
+  | "setup"
+  | "turn_ready"
+  | "playing"
+  | "paused"
+  | "prenda_alert"
+  | "round_summary"
+  | "game_over";
 
 export type RoundResult = {
   cardId: string;
-  status: 'correct' | 'smashed' | 'skipped' | 'prenda'; // smashed = taboo word spoken
+  status: "correct" | "smashed" | "skipped" | "prenda"; // smashed = taboo word spoken
   timestamp: number;
+};
+
+export type PlayerStats = {
+  totalCards: number;
+  correct: number;
+  taboos: number;
+  skipped: number;
+  longestStreak: number;
+};
+
+export type PlayerScore = {
+  playerId: string;
+  playerName: string;
+  score: number;
+  statistics: PlayerStats;
 };

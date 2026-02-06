@@ -3,15 +3,12 @@ import { Timer } from "./Timer";
 import { CardDisplay } from "./CardDisplay";
 import { RoundSummaryScreen } from "./RoundSummaryScreen";
 import { GameOverScreen } from "./GameOverScreen";
-import { IndividualGameScreen } from "./IndividualGameScreen";
 import { Button } from "../common/Button";
 import { Modal } from "../common/Modal";
 import { Ban, Check, SkipForward, AlertTriangle, XCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useState } from "react";
-
-import { Scoreboard } from "./Scoreboard";
 
 const handleCardAction = ({
   action,
@@ -27,41 +24,36 @@ const handleCardAction = ({
   }, 1000);
 };
 
-export const GameScreen = () => {
+export const IndividualGameScreen = () => {
   const {
     status,
     currentCard,
-    teams,
-    settings,
-    currentTeamIndex,
+    players,
+    currentReaderIndex,
+    playerScores,
     startRound,
-    scoreCard,
-    skipCard,
-    recordRefusal,
     handlePrendaDone,
     failPrenda,
     currentRoundScore,
     currentPrenda,
+    declareWinner,
+    declareTaboo,
+    skipRound,
   } = useGameStore();
 
   const navigate = useNavigate();
   const [showExitModal, setShowExitModal] = useState(false);
   const [buttonState, setButtonState] = useState(false);
+  const [showWinnerModal, setShowWinnerModal] = useState(false);
 
-  // Redirect if game state is invalid for this screen
   if (status === "setup") {
     return <Navigate to="/setup" replace />;
   }
 
-  // Render individual game mode
-  if (settings.mode === "individual") {
-    return <IndividualGameScreen />;
-  }
-
-  const currentTeam = teams[currentTeamIndex];
+  const currentReader = players[currentReaderIndex];
+  const sortedScores = [...playerScores].sort((a, b) => b.score - a.score);
 
   const handleConfirmExit = () => {
-    // Don't restartGame() here to allow resuming
     navigate("/setup");
   };
 
@@ -72,7 +64,7 @@ export const GameScreen = () => {
   if (status === "turn_ready") {
     return (
       <div className="h-screen bg-purple-900 flex flex-col items-center justify-center text-white p-6 relative">
-        <div className="absolute top-4 left-4 ">
+        <div className="absolute top-4 left-4">
           <button
             onClick={() => setShowExitModal(true)}
             className="text-white/50 hover:text-white p-2 transition-colors flex items-center"
@@ -84,18 +76,37 @@ export const GameScreen = () => {
           </button>
         </div>
 
-        <h2 className="text-4xl-fluid font-bold mb-4">Vez da Equipe</h2>
-        <h1 className="text-6xl-fluid font-black text-yellow-400 mb-8 uppercase tracking-widest text-center">
-          {currentTeam?.name}
+        <h2 className="text-4xl font-bold mb-4">Vez de Ler</h2>
+        <h1 className="text-6xl font-black text-yellow-400 mb-8 uppercase tracking-widest text-center">
+          {currentReader?.name}
         </h1>
 
-        {/* Show Global Scoreboard here too so they know the score before starting */}
-        <div className="mb-12 transform scale-125">
-          <Scoreboard />
+        {/* Show Scoreboard */}
+        <div className="mb-12 w-full max-w-sm">
+          <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+            <h3 className="text-sm font-bold text-purple-300 mb-3 uppercase">
+              Placar
+            </h3>
+            <div className="space-y-2">
+              {sortedScores.map((player, idx) => (
+                <div
+                  key={player.playerId}
+                  className="flex items-center justify-between"
+                >
+                  <span className="text-sm">
+                    {idx + 1}. {player.playerName}
+                  </span>
+                  <span className="font-bold text-yellow-400">
+                    {player.score}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <p className="text-xl mb-12 opacity-80">
-          Prepare-se para dar as dicas!
+          Prepare-se para ler as dicas!
         </p>
         <Button onClick={startRound} size="lg">
           COMEÇAR RODADA
@@ -174,10 +185,36 @@ export const GameScreen = () => {
         variant="default"
       />
 
+      {/* Winner Selection Modal */}
+      <Modal
+        isOpen={showWinnerModal}
+        onClose={() => setShowWinnerModal(false)}
+        title="Quem Acertou?"
+        description="Selecione qual jogador acertou a palavra primeiro:"
+      >
+        <div className="space-y-2 max-h-64 overflow-y-auto">
+          {players.map(
+            (player) =>
+              player.id !== currentReader?.id && (
+                <button
+                  key={player.id}
+                  onClick={() => {
+                    declareWinner(player.id);
+                    setShowWinnerModal(false);
+                  }}
+                  className="w-full p-3 bg-yellow-400 text-purple-900 font-bold rounded-lg hover:bg-yellow-300 transition-colors"
+                >
+                  {player.name}
+                </button>
+              ),
+          )}
+        </div>
+      </Modal>
+
       {/* Header */}
-      <header className="w-full relative mb-4 px-2 flex items-center">
+      <header className="w-full relative mb-4 px-2 flex items-center justify-between">
         {/* Left: Exit */}
-        <div className="w-[80px]">
+        <div className="w-20">
           <button
             onClick={() => setShowExitModal(true)}
             className="text-white/50 p-2 transition-colors"
@@ -186,19 +223,22 @@ export const GameScreen = () => {
           </button>
         </div>
 
-        {/* Center: Scoreboard (centralizado e responsivo) */}
-        <div className="flex-1 flex justify-center">
-          <div className="truncate w-full">
-            <Scoreboard />
-          </div>
+        {/* Center: Reader Info */}
+        <div className="flex flex-col items-center">
+          <span className="text-xs font-bold text-purple-300 uppercase">
+            Leitor
+          </span>
+          <span className="text-sm font-bold text-yellow-400">
+            {currentReader?.name}
+          </span>
         </div>
 
         {/* Right: Round Score */}
-        <div className="w-[80px] flex flex-col items-end">
-          <span className="text-xs sm:text-xl font-bold text-purple-300 uppercase">
+        <div className="w-20 flex flex-col items-end">
+          <span className="text-xs font-bold text-purple-300 uppercase">
             Pontos
           </span>
-          <span className="text-xs sm:text-xl font-black text-yellow-400">
+          <span className="text-lg font-black text-yellow-400">
             {currentRoundScore}
           </span>
         </div>
@@ -224,7 +264,7 @@ export const GameScreen = () => {
           variant="danger"
           className="flex flex-col items-center justify-center py-6"
           onClick={() => {
-            handleCardAction({ action: recordRefusal, setButtonState });
+            handleCardAction({ action: declareTaboo, setButtonState });
           }}
           disabled={buttonState}
         >
@@ -236,7 +276,10 @@ export const GameScreen = () => {
           variant="ghost"
           className="flex flex-col items-center justify-center py-6 bg-purple-700 hover:bg-purple-600 text-white"
           onClick={() => {
-            handleCardAction({ action: skipCard, setButtonState });
+            handleCardAction({
+              action: skipRound,
+              setButtonState,
+            });
           }}
           disabled={buttonState}
         >
@@ -248,7 +291,7 @@ export const GameScreen = () => {
           variant="primary"
           className="flex flex-col items-center justify-center py-6"
           onClick={() => {
-            handleCardAction({ action: scoreCard, setButtonState });
+            setShowWinnerModal(true);
           }}
           disabled={buttonState}
         >
