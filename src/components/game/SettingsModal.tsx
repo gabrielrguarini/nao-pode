@@ -22,7 +22,9 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
     setSettings,
     settings,
     startGame,
-    status,
+    restartGame,
+    teamGameStatus,
+    individualGameStatus,
   } = useGameStore();
 
   const [newTeamName, setNewTeamName] = useState("");
@@ -52,9 +54,18 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
     setNewPlayerName("");
   };
 
-  const handleStart = () => {
+  const handlePrimaryAction = () => {
     setSettings(localSettings);
-    startGame();
+    const modeStatus = localSettings.mode === "teams" ? teamGameStatus : individualGameStatus;
+    const isCurrentActive = modeStatus !== "setup" && modeStatus !== "game_over";
+
+    if (!isCurrentActive) {
+      startGame();
+    } else {
+      // Se já existe um jogo ativo nesse modo, garante que o status global reflita o status desse modo
+      useGameStore.setState({ status: modeStatus });
+    }
+    
     onStart?.();
     onClose();
   };
@@ -100,7 +111,21 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
           <div className="flex-1 flex flex-col min-h-0 p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-x-hidden">
             {/* Game Mode Selector */}
             <section className="space-y-2">
-              <h3 className="text-[10px] sm:text-sm font-bold text-purple-300 uppercase tracking-widest px-1">Modo de Jogo</h3>
+              <div className="flex items-center justify-between px-1">
+                <h3 className="text-[10px] sm:text-sm font-bold text-purple-300 uppercase tracking-widest">Modo de Jogo</h3>
+                {((isTeamMode && teamGameStatus !== "setup" && teamGameStatus !== "game_over") || 
+                  (isIndividualMode && individualGameStatus !== "setup" && individualGameStatus !== "game_over")) && (
+                  <button
+                    onClick={() => {
+                      setSettings(localSettings);
+                      restartGame(false);
+                    }}
+                    className="px-2 py-0.5 rounded-lg text-[8px] sm:text-[10px] font-black bg-red-500/20 text-red-300 border border-red-500/30 hover:bg-red-500/40 transition-all uppercase"
+                  >
+                    Novo Jogo
+                  </button>
+                )}
+              </div>
               <div className="flex gap-1.5 p-1 bg-black/20 rounded-xl sm:rounded-2xl border border-white/5">
                 <button
                   onClick={() => setLocalSettings({ ...localSettings, mode: "teams" })}
@@ -295,9 +320,11 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
             <Button
               className="w-full py-3 sm:py-6 rounded-xl sm:rounded-2xl text-lg sm:text-xl font-black uppercase tracking-tighter flex items-center justify-center gap-3 shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
               disabled={!canStart}
-              onClick={handleStart}
+              onClick={handlePrimaryAction}
             >
-              {status !== 'setup' && status !== 'game_over' ? "Retomar" : "Começar jogo"} <ArrowRight size={20} />
+              {((isTeamMode && teamGameStatus !== "setup" && teamGameStatus !== "game_over") || 
+                (isIndividualMode && individualGameStatus !== "setup" && individualGameStatus !== "game_over")) 
+                ? "Salvar" : "Começar jogo"} <ArrowRight size={20} />
             </Button>
             {!canStart && (
               <p className="text-red-400 text-[8px] sm:text-[10px] font-bold text-center mt-2 sm:mt-3 uppercase tracking-wider">

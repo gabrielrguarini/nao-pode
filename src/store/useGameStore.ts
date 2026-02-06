@@ -19,6 +19,8 @@ interface GameState {
   players: Player[];
   playerScores: PlayerScore[]; // For individual mode
   status: GameStatus;
+  teamGameStatus: GameStatus;
+  individualGameStatus: GameStatus;
 
   // Content State
   isLoading: boolean;
@@ -82,6 +84,8 @@ export const useGameStore = create<GameState>()(
       players: [],
       playerScores: [],
       status: "setup",
+      teamGameStatus: "setup",
+      individualGameStatus: "setup",
 
       isLoading: true,
       allCards: [],
@@ -124,10 +128,26 @@ export const useGameStore = create<GameState>()(
           teams: state.teams.filter((t: Team) => t.id !== id),
         })),
       addPlayer: (player: Player) =>
-        set((state: GameState) => ({ players: [...state.players, player] })),
+        set((state: GameState) => {
+          const newPlayers = [...state.players, player];
+          const newPlayerScores = [...state.playerScores, {
+            playerId: player.id,
+            playerName: player.name,
+            score: 0,
+            statistics: {
+              totalCards: 0,
+              correct: 0,
+              taboos: 0,
+              skipped: 0,
+              longestStreak: 0,
+            }
+          }];
+          return { players: newPlayers, playerScores: newPlayerScores };
+        }),
       removePlayer: (id: string) =>
         set((state: GameState) => ({
           players: state.players.filter((p: Player) => p.id !== id),
+          playerScores: state.playerScores.filter((ps: PlayerScore) => ps.playerId !== id),
         })),
 
       startGame: () => {
@@ -166,6 +186,7 @@ export const useGameStore = create<GameState>()(
 
           set(() => ({
             status: "turn_ready",
+            teamGameStatus: "turn_ready",
             currentRoundNumber: 1,
             currentTeamIndex: 0,
             currentPlayerIndex: 0,
@@ -212,6 +233,7 @@ export const useGameStore = create<GameState>()(
 
           set(() => ({
             status: "turn_ready",
+            individualGameStatus: "turn_ready",
             currentRoundNumber: 1,
             currentReaderIndex: 0,
             currentPlayerIndex: 0,
@@ -628,12 +650,13 @@ export const useGameStore = create<GameState>()(
           }
 
           if (settings.rounds > 0 && nextRoundNumber > settings.rounds) {
-            set({ status: "game_over" });
+            set({ status: "game_over", teamGameStatus: "game_over" });
             return;
           }
 
           set({
             status: "turn_ready",
+            teamGameStatus: "turn_ready",
             currentTeamIndex: nextTeamIndex,
             currentRoundNumber: nextRoundNumber,
             currentRoundScore: 0,
@@ -654,12 +677,13 @@ export const useGameStore = create<GameState>()(
             (p) => p.score >= settings.scoreToWin,
           );
           if (winner) {
-            set({ status: "game_over" });
+            set({ status: "game_over", individualGameStatus: "game_over" });
             return;
           }
 
           set({
             status: "turn_ready",
+            individualGameStatus: "turn_ready",
             currentReaderIndex: nextReaderIndex,
             currentRoundNumber: nextRoundNumber,
             currentRoundScore: 0,
@@ -673,7 +697,7 @@ export const useGameStore = create<GameState>()(
         set((state) => {
           if (state.settings.mode === "teams") {
             return {
-              status: "setup",
+              teamGameStatus: "setup",
               currentRoundNumber: 0,
               usedCardIds: [],
               currentRoundScore: 0,
@@ -684,7 +708,7 @@ export const useGameStore = create<GameState>()(
             };
           } else {
             return {
-              status: "setup",
+              individualGameStatus: "setup",
               currentRoundNumber: 0,
               usedCardIds: [],
               currentRoundScore: 0,
@@ -853,6 +877,8 @@ export const useGameStore = create<GameState>()(
         currentRoundNumber: state.currentRoundNumber,
         allCards: state.allCards,
         allPrendas: state.allPrendas,
+        teamGameStatus: state.teamGameStatus,
+        individualGameStatus: state.individualGameStatus,
       }),
     },
   ),
