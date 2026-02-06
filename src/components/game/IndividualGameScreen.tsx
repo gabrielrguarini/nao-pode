@@ -1,7 +1,7 @@
 import { useGameStore } from "../../store/useGameStore";
 import { Timer } from "./Timer";
 import { CardDisplay } from "./CardDisplay";
-import { RoundSummaryScreen } from "./RoundSummaryScreen";
+
 import { GameOverScreen } from "./GameOverScreen";
 import { Scoreboard } from "./Scoreboard";
 import { SettingsModal } from "./SettingsModal";
@@ -51,7 +51,7 @@ export const IndividualGameScreen = () => {
   }
 
   const currentReader = players[currentReaderIndex];
-  const sortedScores = [...playerScores].sort((a, b) => b.score - a.score);
+
 
 
 
@@ -74,40 +74,26 @@ export const IndividualGameScreen = () => {
           </button>
         </div>
 
-        <h2 className="text-4xl font-bold mb-4">Vez de Ler</h2>
-        <h1 className="text-6xl font-black text-yellow-400 mb-8 uppercase tracking-widest text-center">
-          {currentReader?.name}
-        </h1>
-
-        {/* Show Scoreboard */}
-        <div className="mb-12 w-full max-w-sm">
-          <div className="bg-white/10 rounded-xl p-4 border border-white/20">
-            <h3 className="text-sm font-bold text-purple-300 mb-3 uppercase">
-              Placar
-            </h3>
-            <div className="space-y-2">
-              {sortedScores.map((player, idx) => (
-                <div
-                  key={player.playerId}
-                  className="flex items-center justify-between"
-                >
-                  <span className="text-sm">
-                    {idx + 1}. {player.playerName}
-                  </span>
-                  <span className="font-bold text-yellow-400">
-                    {player.score}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="text-center space-y-2 mb-8">
+          <h2 className="text-2xl font-bold text-purple-300 uppercase tracking-widest">
+            Próximo Leitor:
+          </h2>
+          <h1 className="text-6xl sm:text-7xl font-black text-yellow-400 uppercase tracking-tighter drop-shadow-2xl">
+            {currentReader?.name}
+          </h1>
         </div>
 
-        <p className="text-xl mb-12 opacity-80">
-          Prepare-se para ler as dicas!
+        {/* Global Scoreboard for context */}
+        <div className="mb-12 w-full max-w-sm transform scale-110">
+          <Scoreboard />
+        </div>
+
+        <p className="text-lg mb-8 text-white/60 font-medium italic">
+          Prepare-se para ler a próxima carta!
         </p>
-        <Button onClick={startRound} size="lg">
-          COMEÇAR RODADA
+
+        <Button onClick={startRound} size="lg" className="px-12 py-8 text-2xl shadow-[0_0_30px_rgba(250,204,21,0.3)]">
+          CONTINUAR
         </Button>
 
         <SettingsModal
@@ -155,9 +141,7 @@ export const IndividualGameScreen = () => {
     );
   }
 
-  if (status === "round_summary") {
-    return <RoundSummaryScreen />;
-  }
+
 
   // playing
   return (

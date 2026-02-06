@@ -367,9 +367,9 @@ export const useGameStore = create<GameState>()(
       },
 
       handlePrendaDone: () => {
-        const { settings } = get();
+        const { settings, nextTurn } = get();
         if (settings.mode === "individual") {
-          set({ status: "round_summary" });
+          nextTurn();
         } else {
           set({ status: "playing" });
           get().drawCard();
@@ -408,12 +408,15 @@ export const useGameStore = create<GameState>()(
 
             return {
               playerScores: newScores,
-              status: state.settings.mode === "individual" ? "round_summary" : "playing",
+              status: state.settings.mode === "individual" ? "playing" : "playing", // status will be overridden by nextTurn
             };
           }
         });
 
-        if (get().settings.mode === "teams") {
+        const { settings, nextTurn } = get();
+        if (settings.mode === "individual") {
+          nextTurn();
+        } else {
           get().drawCard();
         }
       },
@@ -752,11 +755,13 @@ export const useGameStore = create<GameState>()(
             playerScores: newScores,
             roundResults: [...state.roundResults, result],
             usedCardIds: [...state.usedCardIds, currentCard.id],
-            status: "round_summary",
+            status: "playing", // Will be changed by nextTurn
             currentRoundScore: state.currentRoundScore + 1,
             selectedWinnerId: playerId,
           };
         });
+
+        get().nextTurn();
       },
 
       declareTaboo: () => {
@@ -809,14 +814,15 @@ export const useGameStore = create<GameState>()(
       },
 
       skipRound: () => {
-        const { currentCard } = get();
+        const { currentCard, nextTurn } = get();
         if (!currentCard) return;
 
         set((state: GameState) => ({
           roundResults: [...state.roundResults],
           usedCardIds: [...state.usedCardIds, currentCard.id],
-          status: "round_summary",
         }));
+
+        nextTurn();
       },
     }),
     {
