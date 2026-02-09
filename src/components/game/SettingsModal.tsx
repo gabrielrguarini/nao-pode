@@ -31,8 +31,6 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
   const [newPlayerName, setNewPlayerName] = useState("");
   const [localSettings, setLocalSettings] = useState(settings);
 
-
-
   const handleAddTeam = () => {
     if (!newTeamName.trim()) return;
     addTeam({
@@ -72,9 +70,16 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
 
   const isTeamMode = localSettings.mode === "teams";
   const isIndividualMode = localSettings.mode === "individual";
+  
   const canStart = isTeamMode 
     ? teams.length >= 2 
     : players.length >= 2 && localSettings.scoreToWin > 0;
+
+  const isGameActive = isTeamMode 
+    ? (teamGameStatus !== "setup" && teamGameStatus !== "game_over")
+    : (individualGameStatus !== "setup" && individualGameStatus !== "game_over");
+
+  const canClose = !isGameActive || canStart;
 
   if (!isOpen) return null;
 
@@ -85,7 +90,7 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center p-4"
-        onClick={onClose}
+        onClick={() => canClose && onClose()}
       >
         <motion.div
           initial={{ scale: 0.9, y: 20, opacity: 0 }}
@@ -100,8 +105,13 @@ export const SettingsModal = ({ isOpen, onClose, onStart }: SettingsModalProps) 
               <Settings className="text-yellow-400" size={20} /> Configuração
             </h2>
             <button
-              onClick={onClose}
-              className="p-2 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
+              onClick={() => canClose && onClose()}
+              className={`p-2 rounded-full transition-colors ${
+                canClose 
+                  ? "hover:bg-white/10 text-white/60 hover:text-white" 
+                  : "text-white/20 cursor-not-allowed"
+              }`}
+              disabled={!canClose}
             >
               <X size={24} />
             </button>

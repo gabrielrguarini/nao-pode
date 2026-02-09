@@ -270,19 +270,31 @@ export const useGameStore = create<GameState>()(
       },
 
       tickTimer: () => {
-        const { roundTimeRemaining, status, endRound, settings, nextTurn } = get();
-        if (status !== "playing") return;
+    const { roundTimeRemaining, status, endRound, settings, nextTurn, currentCard, usedCardIds, teams, players } = get();
+    if (status !== "playing") return;
 
-        if (roundTimeRemaining > 0) {
-          set({ roundTimeRemaining: roundTimeRemaining - 1 });
-        } else {
-          if (settings.mode === "individual") {
-            nextTurn();
-          } else {
-            endRound();
-          }
-        }
-      },
+    // Safety: If someone deleted all players/teams while game was playing
+    const hasEnoughParticipants = settings.mode === "teams" ? teams.length >= 2 : players.length >= 2;
+    if (!hasEnoughParticipants) {
+      set({ status: "setup" });
+      return;
+    }
+
+    if (roundTimeRemaining > 0) {
+      set({ roundTimeRemaining: roundTimeRemaining - 1 });
+    } else {
+      // Discard current card on timeout so it doesn't repeat for next player
+      if (currentCard) {
+        set({ usedCardIds: [...usedCardIds, currentCard.id] });
+      }
+      
+      if (settings.mode === "individual") {
+        nextTurn();
+      } else {
+        endRound();
+      }
+    }
+  },
 
       drawCard: () => {
         const { deck, usedCardIds, settings, roundResults, endRound } = get();
@@ -456,8 +468,18 @@ export const useGameStore = create<GameState>()(
           roundResults,
           currentReaderIndex,
           playerScores,
+          settings,
+          players,
+          teams,
         } = get();
         if (!currentCard) return;
+
+        // Safety: If someone changed mode or deleted all players/teams while game was playing
+        const hasEnoughParticipants = settings.mode === "teams" ? teams.length >= 2 : players.length >= 2;
+        if (!hasEnoughParticipants) {
+          set({ status: "setup" });
+          return;
+        }
 
         const result: RoundResult = {
           cardId: currentCard.id,
@@ -527,8 +549,14 @@ export const useGameStore = create<GameState>()(
             const readerIdx = newScores.findIndex(
               (p) => p.playerId === state.players[currentReaderIndex]?.id,
             );
-            if (readerIdx >= 0) {
-              const currentStats = newScores[readerIdx].statistics;
+            if (readerIdx >= 0 && newScores[readerIdx]) {
+              const currentStats = newScores[readerIdx].statistics || {
+                totalCards: 0,
+                correct: 0,
+                taboos: 0,
+                skipped: 0,
+                longestStreak: 0,
+              };
               newScores[readerIdx] = {
                 ...newScores[readerIdx],
                 score: newScores[readerIdx].score + 1,
@@ -564,8 +592,17 @@ export const useGameStore = create<GameState>()(
           currentTeamIndex,
           currentReaderIndex,
           playerScores,
+          teams,
+          players,
         } = get();
         if (!settings.allowSkips || !currentCard) return;
+
+        // Safety: If someone changed mode or deleted all players/teams while game was playing
+        const hasEnoughParticipants = settings.mode === "teams" ? teams.length >= 2 : players.length >= 2;
+        if (!hasEnoughParticipants) {
+          set({ status: "setup" });
+          return;
+        }
 
         const result: RoundResult = {
           cardId: currentCard.id,
@@ -723,9 +760,14 @@ export const useGameStore = create<GameState>()(
 
       // Individual mode specific actions
       declareWinner: (playerId: string) => {
-        const { currentCard, players, playerScores, currentReaderIndex } =
-          get();
+        const { currentCard, players, playerScores, currentReaderIndex, settings } = get();
         if (!currentCard) return;
+
+        // Safety: If someone changed mode or deleted all players mientras se elegía ganador
+        if (settings.mode !== "individual" || players.length < 2) {
+          set({ status: "setup" });
+          return;
+        }
 
         const result: RoundResult = {
           cardId: currentCard.id,
@@ -734,7 +776,11 @@ export const useGameStore = create<GameState>()(
         };
 
         const readerPlayer = players[currentReaderIndex];
-        if (!readerPlayer) return;
+        if (!readerPlayer) {
+          // If readerPlayer is somehow missing, reset to setup to prevent errors
+          set({ status: "setup" });
+          return;
+        }
 
         set((state: GameState) => {
           const newScores = [...playerScores];
@@ -743,17 +789,23 @@ export const useGameStore = create<GameState>()(
           const readerScoreIdx = newScores.findIndex(
             (p) => p.playerId === readerPlayer.id,
           );
-          if (readerScoreIdx >= 0) {
+          if (readerScoreIdx >= 0 && newScores[readerScoreIdx]) {
             let readerStreak = 1;
             for (let i = state.roundResults.length - 1; i >= 0; i--) {
-              if (state.roundResults[i].status === "correct") {
+              if (state.roundResults[i]?.status === "correct") { // Using idx safely or just loop
                 readerStreak++;
               } else {
                 break;
               }
             }
 
-            const readerStats = newScores[readerScoreIdx].statistics;
+            const readerStats = newScores[readerScoreIdx].statistics || {
+              totalCards: 0,
+              correct: 0,
+              taboos: 0,
+              skipped: 0,
+              longestStreak: 0,
+            };
             newScores[readerScoreIdx] = {
               ...newScores[readerScoreIdx],
               score: newScores[readerScoreIdx].score + 1,
@@ -774,7 +826,7 @@ export const useGameStore = create<GameState>()(
           const winnerScoreIdx = newScores.findIndex(
             (p) => p.playerId === playerId,
           );
-          if (winnerScoreIdx >= 0) {
+          if (winnerScoreIdx >= 0 && newScores[winnerScoreIdx]) {
             newScores[winnerScoreIdx] = {
               ...newScores[winnerScoreIdx],
               score: newScores[winnerScoreIdx].score + 1,
@@ -795,8 +847,15 @@ export const useGameStore = create<GameState>()(
       },
 
       declareTaboo: () => {
-        const { currentCard, settings, allPrendas } = get();
+        const { currentCard, settings, allPrendas, players, teams } = get();
         if (!currentCard) return;
+
+        // Safety: If someone changed mode or deleted all players/teams while game was playing
+        const hasEnoughParticipants = settings.mode === "teams" ? teams.length >= 2 : players.length >= 2;
+        if (!hasEnoughParticipants) {
+          set({ status: "setup" });
+          return;
+        }
 
         const result: RoundResult = {
           cardId: currentCard.id,
